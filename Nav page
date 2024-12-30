@@ -133,23 +133,24 @@
         <h1>Seasonal Offers & Premium Furniture Rentals</h1>
     </section>
 
-    <section class="categories">
+       <section class="categories">
         <h2>Explore Categories</h2>
         <div class="grid-container">
             <div class="grid-item">
-                <img src="https://source.unsplash.com/300x200/?bedroom" alt="Bedroom">
+                <img src="https://i.ibb.co/WzQTYSz/bedroom.png" alt="Bedroom" loading="lazy">
                 <p>Bedroom Furniture</p>
             </div>
             <div class="grid-item">
-                <img src="https://source.unsplash.com/300x200/?livingroom" alt="Living Room">
+                <img src="https://i.ibb.co/R0gnsN5/livingroom.png" alt="Living Room" loading="lazy">
                 <p>Living Room</p>
             </div>
             <div class="grid-item">
-                <img src="https://source.unsplash.com/300x200/?appliances" alt="Appliances">
+                <img src="https://i.ibb.co/b5fbZ23/appliances.png" alt="Appliances" loading="lazy">
                 <p>Appliances</p>
             </div>
         </div>
     </section>
+
 
     <footer class="footer">
         <p>&copy; 2024 BucketIt | All Rights Reserved</p>
