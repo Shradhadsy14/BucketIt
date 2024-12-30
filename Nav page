@@ -5,156 +5,239 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BucketIt - Rent Furniture</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        body {
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #fff;
+            box-sizing: border-box;
+            background-color: #FFFFFF;
+            color: #2B2B2B;
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #A57F60;
+            background-color: #3A6351;
             padding: 1rem 2rem;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .logo img {
-            height: 50px;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
         }
 
-        nav ul {
+        .nav-links {
             list-style: none;
-            margin: 0;
-            padding: 0;
             display: flex;
+            gap: 1.5rem;
         }
 
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
+        .nav-links a {
+            color: white;
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
             color: #FFD275;
-            font-weight: 600;
         }
 
-        nav ul li a:hover {
-            color: #DB5A42;
-        }
-
-        .auth-buttons .btn {
-            background-color: #E8AE68;
-            color: #FFF;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-left: 10px;
-        }
-
-        .banner {
-            background: url('/mnt/data/www.furlenco.com_rent_utm_source=google&utm_medium=PMAX&utm_campaign=NEWCUX&gad_source=1&gclid=EAIaIQobChMI76y-8czOigMVz4VLBR25USQtEAAYASAAEgIsXfD_BwE.png') no-repeat center center/cover;
-            height: 450px;
+        .hero {
+            background: url('images/hero-bg.jpg') center/cover no-repeat;
+            height: 70vh;
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: #fff;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-color: #3A6351;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta {
+            background-color: #FFD275;
+            color: #3A6351;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #E8AE68;
+        }
+
+        .categories, .offers, .why-us, .new-arrivals {
+            padding: 2rem;
             text-align: center;
         }
 
-        .banner h1 {
-            font-size: 3.5rem;
+        .category-grid, .offer-grid, .benefit-grid, .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
-        .categories, .offers, .why-rent, .new-arrivals, .spotlight, .mattresses, .cta {
-            padding: 50px 100px;
-            text-align: center;
+        .category-item, .offer-item, .benefit-item, .product-item {
+            background: #F4F4F4;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-item img, .product-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .footer {
-            background-color: #A57F60;
-            color: #fff;
-            padding: 20px 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: #3A6351;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
         }
 
-        .footer a {
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
             color: #FFD275;
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .grid-item {
-            background-color: #E3A587;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .grid-item img {
-            width: 100%;
-            border-radius: 10px;
+        .footer-links a:hover {
+            color: #E8AE68;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <a href="#"><img src="https://i.ibb.co/DYwtPs0/bucketit-logo.png" alt="BucketIt Logo"></a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">Offers</a></li>
-                    <li><a href="#">Why Rent?</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="auth-buttons">
-                <a href="signup.html" class="btn">Sign Up</a>
-                <a href="login.html" class="btn">Login</a>
-            </div>
-        </div>
+    <header class="navbar">
+        <div class="logo">BucketIt</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#rent">Rent</a></li>
+                <li><a href="#buy">Buy</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="banner">
-        <h1>Seasonal Offers & Premium Furniture Rentals</h1>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Rent Furniture & Appliances with Ease</h1>
+                <p>Affordable and hassle-free rentals for your home and office needs.</p>
+                <button class="cta">Explore Now</button>
+            </div>
+        </section>
 
-       <section class="categories">
-        <h2>Explore Categories</h2>
-        <div class="grid-container">
-            <div class="grid-item">
-                <img src="https://i.ibb.co/WzQTYSz/bedroom.png" alt="Bedroom" loading="lazy">
-                <p>Bedroom Furniture</p>
+        <section id="categories" class="categories">
+            <h2>Rent Furniture</h2>
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="images/living-room.jpg" alt="Living Room">
+                    <h3>Living Room</h3>
+                </div>
+                <div class="category-item">
+                    <img src="images/bedroom.jpg" alt="Bedroom">
+                    <h3>Bedroom</h3>
+                </div>
+                <div class="category-item">
+                    <img src="images/dining.jpg" alt="Dining">
+                    <h3>Dining</h3>
+                </div>
+                <div class="category-item">
+                    <img src="images/appliances.jpg" alt="Appliances">
+                    <h3>Appliances</h3>
+                </div>
             </div>
-            <div class="grid-item">
-                <img src="https://i.ibb.co/R0gnsN5/livingroom.png" alt="Living Room" loading="lazy">
-                <p>Living Room</p>
-            </div>
-            <div class="grid-item">
-                <img src="https://i.ibb.co/b5fbZ23/appliances.png" alt="Appliances" loading="lazy">
-                <p>Appliances</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
+        <section id="offers" class="offers">
+            <h2>Offers & Discounts</h2>
+            <div class="offer-grid">
+                <div class="offer-item">
+                    <h3>Flat 20% Off</h3>
+                    <p>On your first rental order</p>
+                </div>
+                <div class="offer-item">
+                    <h3>Zero Deposit</h3>
+                    <p>Start renting without any deposit</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="why-us">
+            <h2>Why Choose BucketIt?</h2>
+            <div class="benefit-grid">
+                <div class="benefit-item">
+                    <h3>Flexible Terms</h3>
+                    <p>Rent for as long as you need</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Affordable Prices</h3>
+                    <p>Cost-effective solutions for your furniture needs</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Quick Delivery</h3>
+                    <p>Get your furniture delivered within 72 hours</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="new-arrivals" class="new-arrivals">
+            <h2>New Arrivals</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="images/sofa.jpg" alt="Sofa">
+                    <h3>Modern Sofa</h3>
+                    <p>₹899/mo</p>
+                </div>
+                <div class="product-item">
+                    <img src="images/bed.jpg" alt="Bed">
+                    <h3>Queen Bed</h3>
+                    <p>₹1,049/mo</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
-        <p>&copy; 2024 BucketIt | All Rights Reserved</p>
-        <a href="#">Privacy Policy</a>
+        <div class="footer-links">
+            <a href="#about">About Us</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms & Conditions</a>
+        </div>
+        <p>&copy; 2024 BucketIt. All rights reserved.</p>
     </footer>
 </body>
 </html>
