@@ -27,7 +27,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
         }
 
@@ -50,17 +50,17 @@
 
         .hero {
             background: url('images/hero-bg.jpg') center/cover no-repeat;
-            height: 70vh;
+            height: 75vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            background-color: #3A6351;
+            background-color: rgba(58, 99, 81, 0.85);
         }
 
         .hero-content h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
         }
 
@@ -73,8 +73,8 @@
             background-color: #FFD275;
             color: #3A6351;
             border: none;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             border-radius: 5px;
             font-weight: 700;
@@ -86,27 +86,27 @@
         }
 
         .categories, .offers, .why-us, .new-arrivals {
-            padding: 2rem;
+            padding: 4rem 2rem;
             text-align: center;
         }
 
         .category-grid, .offer-grid, .benefit-grid, .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .category-item, .offer-item, .benefit-item, .product-item {
             background: #F4F4F4;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
         }
 
         .category-item img, .product-item img {
             width: 100%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -115,15 +115,15 @@
             background-color: #3A6351;
             color: white;
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-links a {
@@ -210,22 +210,6 @@
                 <div class="benefit-item">
                     <h3>Quick Delivery</h3>
                     <p>Get your furniture delivered within 72 hours</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="new-arrivals" class="new-arrivals">
-            <h2>New Arrivals</h2>
-            <div class="product-grid">
-                <div class="product-item">
-                    <img src="images/sofa.jpg" alt="Sofa">
-                    <h3>Modern Sofa</h3>
-                    <p>₹899/mo</p>
-                </div>
-                <div class="product-item">
-                    <img src="images/bed.jpg" alt="Bed">
-                    <h3>Queen Bed</h3>
-                    <p>₹1,049/mo</p>
                 </div>
             </div>
         </section>
