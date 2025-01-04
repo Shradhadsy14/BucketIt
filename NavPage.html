@@ -210,6 +210,38 @@
                 </div>
             </div>
         </div>
+        <div class="carousel-item" data-bs-interval="3000">
+                <img src="xx.jpg" class="d-block w-100" alt="Slide 4">
+                <div class="carousel-caption d-none d-md-block"><section class="hero">
+                        <div class="hero-content">
+                            <h1>Rent Furniture & Appliances with Ease</h1>
+                            <p>Affordable and hassle-free rentals for your home and office needs.</p>
+                            <button class="cta">Explore Now</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        <div class="carousel-caption">
+    <h1>Limited-Time Offer</h1>
+    <p id="countdown"></p>
+</div>
+
+<script>
+    const countdownElement = document.getElementById("countdown");
+    const endTime = new Date("2025-01-10T23:59:59").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const timeLeft = endTime - now;
+        if (timeLeft > 0) {
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            countdownElement.textContent = `${days}d ${hours}h left`;
+        } else {
+            countdownElement.textContent = "Offer expired!";
+        }
+    }, 1000);
+</script>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -234,7 +266,7 @@
                 </div>
                 <div class="category-item">
                     
-                        <a href="https://shradhadsy14.github.io/BucketIt/Bedroom.html"><img src="bedroom.jpg" alt="Bedroom"></a>
+                        <a href="https://shradhadsy14.github.io/BucketIt/Bedroom.html"><img src="Bedroom.jpg" alt="Bedroom"></a>
                     <h3>Bedroom</h3>
                 </div>
                 <div class="category-item">
