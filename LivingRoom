@@ -4,111 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Living Room Furniture - BucketIt</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #FFFFFF;
-            color: #2B2B2B;
+            background-color: #DAD7CD;
+            color: #344E41;
+            overflow-x: hidden;
         }
 
+        /* Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #3A6351;
-            padding: 1rem 2rem;
-            color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #344E41;
+            padding: 1.5rem 3rem;
+            color: #DAD7CD;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar:hover {
+            background-color: #3A5A40;
+            transform: translateY(-2px);
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 600;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
-            color: white;
+            color: #DAD7CD;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: #FFD275;
+            color: #A3B18A;
+            transform: scale(1.1);
         }
 
+        /* Header Section */
         .category-header {
-            background: url('images/living-room-banner.jpg') center/cover no-repeat;
-            height: 60vh;
+            background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
+                        url('images/living-room-banner.jpg') center/cover no-repeat;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: #DAD7CD;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
         }
 
         .category-header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 1.5px;
         }
 
+        /* Items Section */
         .category-items {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
         }
 
         .category-item {
-            background: #F4F4F4;
-            padding: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #FAFAF5;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
             text-align: center;
+            transform: translateY(30px);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .category-item:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+        .category-item:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+        .category-item:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .category-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
         }
 
         .category-item img {
             width: 100%;
-            height: 250px;
+            height: 260px;
             object-fit: cover;
             border-radius: 8px;
         }
 
+        .category-item h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.8rem;
+            color: #588157;
+            transition: color 0.3s ease;
+        }
+
+        .category-item:hover h3 {
+            color: #344E41;
+        }
+
+        .category-item p {
+            font-size: 1.4rem;
+            color: #A3B18A;
+        }
+
+        /* Footer */
         .footer {
-            background-color: #3A6351;
-            color: white;
+            background: #344E41;
+            color: #DAD7CD;
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 1rem;
+            gap: 2rem;
             margin-bottom: 1rem;
         }
 
         .footer-links a {
-            color: #FFD275;
+            color: #A3B18A;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: #E8AE68;
+            color: #DAD7CD;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .category-header h1 {
+                font-size: 2.8rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .navbar {
+                padding: 1.2rem 1.8rem;
+            }
         }
     </style>
 </head>
@@ -132,30 +206,25 @@
 
         <section class="category-items">
             <div class="category-item">
-                <img src="images/living-room-sofa.jpg" alt="Living Room Sofa">
-                <h3>Modern Sofa</h3>
-                <p>₹1,499/mo</p>
+                <img src="images/living-room-sofa.jpg" alt="Sofa">
+                <h3>Elegant Sofa</h3>
+                <p>₹1,599/mo</p>
             </div>
             <div class="category-item">
-                <img src="images/living-room-chair.jpg" alt="Living Room Chair">
-                <h3>Comfortable Chair</h3>
-                <p>₹799/mo</p>
-            </div>
-            <div class="category-item">
-                <img src="images/living-room-coffee-table.jpg" alt="Living Room Coffee Table">
-                <h3>Wooden Coffee Table</h3>
-                <p>₹499/mo</p>
+                <img src="images/living-room-chair.jpg" alt="Chair">
+                <h3>Armchair</h3>
+                <p>₹999/mo</p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="footer-links">
-            <a href="#about">About Us</a>
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms & Conditions</a>
+            <a href="#about">About</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#terms">Terms</a>
         </div>
-        <p>&copy; 2024 BucketIt. All rights reserved.</p>
+        <p>&copy; 2025 BucketIt. All rights reserved.</p>
     </footer>
 </body>
 </html>
