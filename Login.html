@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hexagon Western Restaurant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/all.css" rel="stylesheet">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/all.js"></script>
+    <link href="css/forms.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Add Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap');
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif; /* Set body text font to Roboto */
+            background: linear-gradient(135deg, #FEFAE0, #DDA15E); /* Gradient background */
+        }
+
+        .wrap {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .header h1 a {
+            color: #283618; /* Dark Green */
+            text-decoration: none;
+            font-size: 3.5rem; /* Increased font size for the header */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .header h1 a:hover {
+            color: #DDA15E; /* Golden Yellow */
+        }
+
+        .header ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+
+        .header ul li {
+            display: inline;
+            margin: 0 1.5rem; /* Increased margin for better spacing */
+        }
+
+        .header ul li a {
+            color: #BC6C25; /* Brown */
+            text-decoration: none;
+            font-size: 1.3rem; /* Slightly larger navigation links */
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .header ul li a:hover {
+            color: #606C38; /* Dark Olive Green */
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+        }
+
+        .form-login {
+            background: linear-gradient(135deg, #FEFAE0, #DDA15E); /* Gradient background for the form */
+            padding: 3rem;
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 450px; /* Increased max width */
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .form-login:hover {
+            transform: scale(1.02); /* Slight scale effect on hover */
+        }
+
+        .form-login h2 {
+            color: #606C38; /* Dark Olive Green */
+            font-size: 3rem; /* Increased font size for the login form heading */
+            font-family: 'Playfair Display', serif; /* Elegant font */
+            font-weight: bold;
+        }
+
+        .form-login h3 {
+            color: #606C38; /* Dark Olive Green */
+            font-size: 1.8rem; /* Increased subheading size */
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+
+        .form-login .pure-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-login .pure-form label {
+            align-self: flex-start;
+            margin: 0.5rem 0 0.25rem;
+            color: #283618; /* Dark Green */
+            font-size: 1.2rem; /* Larger label font size */
+            font-weight: 500;
+        }
+
+        .emailwrap, .psdwrap {
+            display: flex;
+            align ```html
+            items: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid #DDA15E; /* Golden Yellow */
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        .emailwrap:hover, .psdwrap:hover {
+            border-color: #BC6C25; /* Brown */
+        }
+
+        .emailwrap i, .psdwrap i {
+            padding: 0.75rem;
+            background: #FEFAE0; /* Light Cream */
+            color: #BC6C25; /* Brown */
+        }
+
+        .detailinput {
+            flex: 1;
+            border: none;
+            padding: 0.75rem;
+            outline: none;
+            font-size: 1.2rem; /* Adjusted input font size */
+        }
+
+        .detailinput:focus {
+            border-color: #BC6C25; /* Brown */
+            box-shadow: 0 0 5px rgba(188, 108, 37, 0.5);
+        }
+
+        .registerbtn, .loginbtn {
+            padding: 1rem;
+            margin: 1rem 0.5rem;
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer;
+            width: 45%;
+            font-size: 1.2rem; /* Slightly larger button text */
+            transition: background 0.3s ease, transform 0.3s ease;
+            background: linear-gradient(135deg, #606C38, #DDA15E); /* Gradient for buttons */
+            color: #fff;
+        }
+
+        .registerbtn:hover {
+            background: linear-gradient(135deg, #DDA15E, #BC6C25); /* Gradient on hover */
+            transform: scale(1.05);
+        }
+
+        .loginbtn:hover {
+            background: linear-gradient(135deg, #4A5E3A, #606C38); /* Darker gradient on hover */
+            transform: scale(1.05);
+        }
+
+        .forgetpsd {
+            margin: 1rem 0;
+        }
+
+        .forgetpsd a {
+            color: #BC6C25; /* Brown */
+            text-decoration: none;
+            font-size: 1.2rem; /* Larger font for forget password link */
+        }
+
+        .forgetpsd a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #283618; /* Dark Green */
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer .about, .footer .connect {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 1rem;
+            text-align: left;
+        }
+
+        .footer h2 {
+            color: #DDA15E; /* Golden Yellow */
+            margin-bottom: 1rem;
+            font-size: 2.5rem; /* Larger footer heading */
+            font-weight: bold;
+        }
+
+        .footer p, .footer ul {
+            font-size: 1.2rem; /* Larger text for footer paragraph and list items */
+            line-height: 1.6;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer ul li i {
+            margin-right: 0.5rem;
+        }
+
+        /* Animations for smooth transitions */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .header h1 a {
+                font-size: 2.2rem; /* Smaller font size for mobile */
+            }
+
+            .header ul li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .form-login {
+                padding: 2rem;
+                max-width: 90%;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer .about, .footer .connect {
+                max-width: 90%;
+                margin-bottom: 2rem;
+ }
+
+            .footer ul li {
+                font-size: 0.9rem; /* Adjust font size for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 a {
+                font-size: 1.8rem; /* Smaller font size for very small screens */
+            }
+
+            .form-login {
+                padding: 1.5rem;
+                max-width: 100%;
+            }
+
+            .registerbtn, .loginbtn {
+                width: 100%; /* Full width buttons on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <h1><a href="#">EXPLORE.RENT.REPEAT!!</a></h1>
+            <ul>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="cart.html">Order</a></li>
+                <li><a href="#">Map</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="form-login">
+                <h2>BucketIt</h2>
+                <h3>Love it.. Rent it..</h3>
+                <form class="pure-form pure-form-stacked">
+                    <p class="loginp">LOGIN</p>
+                    <label for="email">Email Address*</label>
+                    <div class="emailwrap">
+                        <i class="far fa-envelope"></i>
+                        <input class="detailinput" id="email" type="email" placeholder="Email" required>
+                    </div>
+                    <label for="password">Password*</label>
+                    <div class="psdwrap">
+                        <i class="fas fa-lock"></i>
+                        <input class="detailinput" id="password" type="password" placeholder="Password" required>
+                    </div>
+                    <p class="forgetpsd"><a href="#">Forgot Password?</a></p>
+                    <div>
+                        <input type="submit" class="registerbtn" value="Register">
+                        <input type="submit" class="loginbtn" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="about">
+                <h2>About Us</h2>
+                <p>We are dedicated to providing the best rental experience.</p>
+            </div>
+            <div class="connect">
+                <h2>Connect</h2>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> info@bucketit.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Rental St, City, Country</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
