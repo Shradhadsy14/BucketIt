@@ -59,7 +59,7 @@
         /* Header Section */
         .category-header {
             background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
-                        url('images/living-room-banner.jpg') center/cover no-repeat;
+                        url('images/dining-room-banner.jpg') center/cover no-repeat;
             height: 70vh;
             display: flex;
             align-items: center;
@@ -78,10 +78,15 @@
 
         /* Items Section */
         .category-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            overflow: hidden; /* Hide scrollbar */
             padding: 4rem 5%;
+            position: relative;
+        }
+
+        .category-items-inner {
+            display: flex;
+            animation: scroll 20s linear infinite; /* Animation for scrolling */
         }
 
         .category-item {
@@ -90,24 +95,8 @@
             border-radius: 12px;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
             text-align: center;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        .category-item:nth-child(1) {
-            animation-delay: 0.3s;
-        }
-        .category-item:nth-child(2) {
-            animation-delay: 0.6s;
-        }
-        .category-item:nth-child(3) {
-            animation-delay: 0.9s;
-        }
-
-        .category-item:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            min-width: 300px; /* Set a minimum width for the items */
+            margin-right: 2rem; /* Space between items */
         }
 
         .category-item img {
@@ -173,6 +162,15 @@
             }
         }
 
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
         @media (max-width: 768px) {
             .category-header h1 {
                 font-size: 2.8rem;
@@ -205,16 +203,81 @@
         </section>
 
         <section class="category-items">
+            <div class="category-items-inner">
+                <div class="category-item">
+                    <img src="images/dining-table.jpg" alt="Dining Table">
+                    <h3>Dining Table</h3>
+                    <p>₹1,499/mo</p>
+                </div>
+                <div class="category-item">
+                    <img src="images/dining-chair.jpg" alt="Dining Chair">
+                    <h3>Dining Chair</h3>
+                    <p>₹499/mo</p>
+                </div>
+                <div class="category-item">
+                    <img src="images/dining-set.jpg" alt="Dining Set">
+                    <h3>Dining Set</h3>
+                    <p>₹2,999/mo</p>
+                </div>
+                <div class="category-item">
+                    <img src="images/dining-bench.jpg" alt="Dining Bench">
+                    <h3>Dining Bench</h3>
+                    <p>₹799/mo</p>
+                </div>
+                <div class="category-item">
+                    <img src="images/dining-cabinet.jpg" alt="Dining Cabinet">
+                    <h3>Dining Cabinet</h3>
+                    <p>₹1,199/mo</p>
+                </div>
+            </div>
+        </section>
+        <section class="category-items">
             <div class="category-item">
-                <img src="images/living-room-sofa.jpg" alt="Sofa">
-                <h3>Wooden Table</h3>
-                <p>₹399/mo</p>
+                <img src="images/bedroom-mattress.jpg" alt="Mattress">
+                <h3>Spring Mattress</h3>
+                <p>₹1,999/mo</p>
             </div>
             <div class="category-item">
-                <img src="images/living-room-chair.jpg" alt="Chair">
-                <h3>6 Chairs Set</h3>
-                <p>₹999/mo</p>
+                <img src="images/bedroom-cot.jpg" alt="Cot">
+                <h3>Wooden Cot</h3>
+                <p>₹1,299/mo</p>
             </div>
+            <div class="category-item">
+                <img src="images/bedroom-nightstand.jpg" alt="Nightstand">
+                <h3>Nightstand</h3>
+                <p>₹799/mo</p>
+            </div>
+            <div class="category-item">
+                <img src="images/bedroom-dresser.jpg" alt="Dresser">
+                <h3>Dresser</h3>
+                <p>₹1,499/mo</p>
+            </div>
+            
+            
+        </section>
+        <section class="category-items">
+            <div class="category-item">
+                <img src="images/bedroom-mattress.jpg" alt="Mattress">
+                <h3>Spring Mattress</h3>
+                <p>₹1,999/mo</p>
+            </div>
+            <div class="category-item">
+                <img src="images/bedroom-cot.jpg" alt="Cot">
+                <h3>Wooden Cot</h3>
+                <p>₹1,299/mo</p>
+            </div>
+            <div class="category-item">
+                <img src="images/bedroom-nightstand.jpg" alt="Nightstand">
+                <h3>Nightstand</h3>
+                <p>₹799/mo</p>
+            </div>
+            <div class="category-item">
+                <img src="images/bedroom-dresser.jpg" alt="Dresser">
+                <h3>Dresser</h3>
+                <p>₹1,499/mo</p>
+            </div>
+            
+            
         </section>
     </main>
 
