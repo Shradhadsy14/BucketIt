@@ -6,7 +6,6 @@
     <title>BucketIt - Rent Furniture</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -18,32 +17,25 @@
         }
 
         .navbar {
-    display: flex;
-    justify-content: space-between; /* Space between logo, nav, and cart */
-    align-items: center;
-    background-color: #3A6351;
-    padding: 1rem 2rem;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative; /* Ensure positioning context */
-}
-
-nav {
-    flex-grow: 1; /* Allow nav to take up available space */
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start; /* Align links to the left */
-    gap: 1.5rem;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3A6351;
+            padding: 1rem 2rem;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
         }
 
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
 
         .nav-links a {
             color: white;
@@ -146,9 +138,10 @@ nav {
         }
         /* For carousel images */
 .carousel-item img {
-    height: 650px; /* Set the desired height */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
+    height: 650px;
+    object-fit: cover;
 }
+
 
 /* For grid images in categories */
 .category-item img {
@@ -157,52 +150,26 @@ nav {
     width: 100%; /* Ensure the width adjusts accordingly */
 }
 	    .logo img {
-    height: 50px; /* Set a fixed height */
-    width: auto; /* Maintain aspect ratio */
-}
-	    .cart {
-    position: relative;
+    height: 50px;
+    width: auto;
 }
 
-.cart-button {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.cart-button .cart-count {
-    background-color: #FFD275;
-    color: #3A6351;
-    border-radius: 50%;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.9rem;
-}
 
     </style>
 </head>
 <body>
     <header class="navbar">
-    <div class="logo">
-        <img src="Logo1.png" height="50px">
-    </div>
-    <nav>
-        <ul class="nav-links">
-            <li><a href="#rent">Rent</a></li>
-            <li><a href="#buy">Buy</a></li>
-            <li><a href="#offers">Offers</a></li>
-            <li><a href="https://shradhadsy14.github.io/BucketIt/Login.html">LogIn</a></li>
-        </ul>
-    </nav>
-    <div class="cart">
-        <a href="#cart" class="cart-button">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count">0</span>
-        </a>
-    </div>
-</header>
+        <div class="logo">
+<img src="Logo1.png" height=50px ></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#rent">Rent</a></li>
+                <li><a href="#buy">Buy</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="https://shradhadsy14.github.io/BucketIt/Login.html">LogIn</a></li>
+            </ul>
+        </nav>
+    </header>
 
 <head>
     <meta charset="UTF-8">
