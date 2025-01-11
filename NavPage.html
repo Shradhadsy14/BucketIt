@@ -18,25 +18,32 @@
         }
 
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #3A6351;
-            padding: 1rem 2rem;
-            color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    display: flex;
+    justify-content: space-between; /* Space between logo, nav, and cart */
+    align-items: center;
+    background-color: #3A6351;
+    padding: 1rem 2rem;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure positioning context */
+}
+
+nav {
+    flex-grow: 1; /* Allow nav to take up available space */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* Align links to the left */
+    gap: 1.5rem;
+}
 
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
         }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
 
         .nav-links a {
             color: white;
@@ -191,8 +198,8 @@
     </nav>
     <div class="cart">
         <a href="#cart" class="cart-button">
-            <i class="fas fa-shopping-cart"></i> 
-            <span class="cart-count">0</span> 
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
         </a>
     </div>
 </header>
