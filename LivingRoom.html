@@ -111,6 +111,7 @@
             font-size: 1.8rem;
             color: #588157;
             transition: color 0.3s ease;
+            cursor: pointer; /* Change cursor to pointer */
         }
 
         .category-item:hover h3 {
@@ -142,14 +143,49 @@
             color: #A3B18A;
             text-decoration: none;
             font-weight: 500;
-            transition: all  0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .footer-links a:hover {
             color: #DAD7CD;
             transform: translateY(-3px);
         }
+	/* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+        }
 
+        .modal-content {
+            background-color: #DAD7CD;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #344E41;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #A3B18A;
+            text-decoration: none;
+            cursor: pointer;
+        }
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -182,7 +218,8 @@
                 padding: 1.2rem 1.8rem;
             }
         }
-	.add-to-cart {
+
+        .add-to-cart {
             background-color: #588157;
             color: #DAD7CD;
             border: none;
@@ -201,7 +238,8 @@
 <body>
     <header class="navbar">
         <div class="logo">
-<img src="Logo1.png" height=50px ></div>
+            <img src="Logo1.png" height="50px">
+        </div>
         <nav>
             <ul class="nav-links">
                 <li><a href="#rent">Rent</a></li>
@@ -223,49 +261,49 @@
                     <img src="living-sofa.jpg" alt="Sofa">
                     <h3>Elegant Sofa</h3>
                     <p>₹1,599/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="living-chair.jpg" alt="Chair">
                     <h3>Armchair</h3>
                     <p>₹999/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="living-coffeetable.jpg" alt="Coffee Table">
                     <h3>Stylish Coffee Table</h3>
                     <p>₹1,199/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="living-bookshelf.jpg" alt="Bookshelf">
                     <h3>Modern Bookshelf</h3>
                     <p>₹1,299/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="living-tvstand.webp" alt="TV Stand">
                     <h3>TV Stand</h3>
                     <p>₹1,499/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="living-rug.webp" alt="Rug">
                     <h3>Cozy Rug</h3>
                     <p>₹799/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="living-lamp.webp" alt="Lamp">
                     <h3>Floor Lamp</h3>
                     <p>₹899/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="living-ottoman.jpg" alt="Ottoman">
                     <h3>Comfort Ottoman</h3>
                     <p>₹699/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -275,55 +313,272 @@
                 <img src="living-wallart.jpg" alt="Wallart">
                 <h3>Wall Art</h3>
                 <p>₹1,599/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="living-throwpillows.jpg" alt="Throwpillows">
                 <h3>Throw Pillows</h3>
                 <p>₹999/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="living-curtains.jpg" alt="Curtains">
                 <h3>Curtains</h3>
                 <p>₹899/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="living-footstools.jpg" alt="Footstools">
                 <h3>Foot Stools</h3>
                 <p>₹699/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
-            
         </section>
+
         <section class="category-items">
             <div class="category-item">
                 <img src="living-footstools.jpg" alt="Footstools">
                 <h3>Foot Stools</h3>
                 <p>₹699/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="category-item">
-                    <img src="living-ottoman.jpg" alt="Ottoman">
-                    <h3>Comfort Ottoman</h3>
-                    <p>₹699/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
-                </div>
+                <img src="living-ottoman.jpg" alt="Ottoman">
+                <h3>Comfort Ottoman</h3>
+                <p>₹699/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
             <div class="category-item">
-                    <img src="living-chair.jpg" alt="Chair">
-                    <h3>Armchair</h3>
-                    <p>₹999/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
-                </div>
+                <img src="living-chair.jpg" alt="Chair">
+                <h3>Armchair</h3>
+                <p>₹999/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
             <div class="category-item">
-                    <img src="living-rug.webp" alt="Rug">
-                    <h3>Cozy Rug</h3>
-                    <p>₹799/mo</p>
-		<button class="add-to-cart">Add to Cart</button>
-                </div>
-            
+                <img src="living-rug.webp" alt="Rug">
+                <h3>Cozy Rug</h3>
+                <p>₹799/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
         </section>
+
+        <!-- Modals for all products -->
+        <!-- Modal for Elegant Sofa -->
+        <div id="sofaModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('sofaModal')">&times;</span>
+                <h2>Elegant Sofa</h2>
+                <img src="living-sofa.jpg" alt="Sofa" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,599/mo</p>
+                <p>Description: A stylish and comfortable sofa that enhances the beauty of your living room.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.8/5)</p>
+                    <p>"Absolutely love this sofa!" - User C</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Armchair -->
+        <div id="armchairModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('armchairModal')">&times;</span>
+                <h2>Armchair</h2>
+                <img src="living-chair.jpg" alt="Armchair" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹999/mo</p>
+                <p>Description: Comfortable armchair that complements your living room.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.5/5)</p>
+                    <p>"Very comfortable!" - User B</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Stylish Coffee Table -->
+        <div id="coffeeTableModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('coffeeTableModal')">&times;</span>
+                <h2>Stylish Coffee Table</h2>
+                <img src="living-coffeetable.jpg" alt="Coffee Table" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,199/mo</p>
+                <p>Description: A modern coffee table that adds elegance to your living space.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.0/5)</p>
+                    <p>"Great design and quality." - User E</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Modern Bookshelf -->
+        <div id="bookshelfModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('bookshelfModal')">&times;</span>
+                <h2>Modern Bookshelf</h2>
+                <img src="living-bookshelf.jpg" alt="Bookshelf" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,299/mo</p>
+                <p>Description: A stylish bookshelf that provides ample storage for your books and decor.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (5.0/5)</p>
+                    <p>"Perfect for my collection!" - User F</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for TV Stand -->
+        <div id="tvStandModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('tvStandModal')">&times;</span>
+                <h2>TV Stand</h2>
+                <img src="living-tvstand.webp" alt="TV Stand" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,499/mo</p>
+                <p>Description: A sleek TV stand that complements your entertainment setup.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.2/5)</p>
+                    <p>"Sturdy and stylish!" - User G</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Cozy Rug -->
+        <div id="rugModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('rugModal')">&times;</span>
+                <h2>Cozy Rug</h2>
+                <img src="living-rug.webp" alt="Rug" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹799/mo</p>
+                <p>Description: A soft and cozy rug that adds warmth to your living space.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.7/5)</p>
+                    <p>"Feels great underfoot!" - User H</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Floor Lamp -->
+        <div id="lampModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('lampModal')">&times;</span>
+                <h2>Floor Lamp</h2>
+                <img src="living-lamp.webp" alt="Lamp" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹899/mo</p>
+                <p>Description: A stylish floor lamp that brightens up your living room.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.3/5)</p>
+                    <p>"Gives a warm glow!" - User I</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Comfort Ottoman -->
+        <div id="ottomanModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('ottomanModal')">&times;</span>
+                <h2>Comfort Ottoman</h2>
+                <img src="living-ottoman.jpg" alt="Ottoman" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹699/mo</p>
+                <p>Description: A versatile ottoman that can be used as a footrest or extra seating.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.6/5)</p>
+                    <p>"Very comfortable!" - User J</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Wall Art -->
+        <div id="wallArtModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('wallArtModal')">&times;</span>
+                <h2>Wall Art</h2>
+                <img src="living-wallart.jpg" alt="Wall Art" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,599/mo</p>
+                <p>Description: Beautiful wall art that adds character to your living space.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (5.0/5)</p>
+                    <p>"A stunning piece!" - User K</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Throw Pillows -->
+        <div id="throwPillowModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('throwPillowModal')">&times;</span>
+                <h2>Throw Pillows</h2>
+                <img src="living-throwpillows.jpg" alt="Throw Pillows" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹999/mo</p>
+                <p>Description: Soft and stylish throw pillows to enhance your seating.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.9/5)</p>
+                    <p>"Perfect for my couch!" - User L</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Curtains -->
+        <div id="curtainsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('curtainsModal')">&times;</span>
+                <h2>Curtains</h2>
+                <img src="living-curtains.jpg" alt="Curtains" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹899/mo</p>
+                <p>Description: Elegant curtains that add privacy and style to your room.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.4/5)</p>
+                    <p>"Great quality!" - User M</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Foot Stools -->
+        <div id="footStoolsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('footStoolsModal')">&times;</span>
+                <h2>Foot Stools</h2>
+                <img src="living-footstools.jpg" alt="Foot Stools" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹699/mo</p>
+                <p>Description: Comfortable foot stools that provide extra support.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.8/5)</p>
+                    <p>"Very useful!" - User N</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
     </main>
 
     <footer class="footer">
@@ -334,5 +589,69 @@
         </div>
         <p>&copy; 2025 BucketIt. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Function to open the modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Add event listeners to each product title to open the corresponding modal
+        document.querySelectorAll('.category-item h3').forEach((item, index) => {
+            const modals = [
+                'sofaModal', 
+                'armchairModal', 
+                'coffeeTableModal', 
+                'bookshelfModal', 
+                'tvStandModal', 
+                'rugModal', 
+                'lampModal', 
+                'ottomanModal', 
+                'wallArtModal', 
+                'throwPillowModal', 
+                'curtainsModal', 
+                'footStoolsModal',
+		'footStoolsModal',
+		'ottomanModal',
+		'armchairModal',
+		'rugModal'
+            ];
+            item.onclick = function() {
+                openModal(modals[index]);
+            }
+        });
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            const modals = [
+                'sofaModal', 
+                'armchairModal', 
+                'coffeeTableModal', 
+                'bookshelfModal', 
+                'tvStandModal', 
+                'rugModal', 
+                'lampModal', 
+                'ottomanModal', 
+                'wallArtModal', 
+                'throwPillowModal', 
+                'curtainsModal', 
+                'footStoolsModal',
+		'footStoolsModal',
+		'ottomanModal',
+		'armchairModal',
+		'rugModal'
+            ];
+            modals.forEach(modalId => {
+                if (event.target == document.getElementById(modalId)) {
+                    closeModal(modalId);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
