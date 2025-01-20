@@ -146,10 +146,45 @@
         }
 
         .footer-links a:hover {
-            color : #DAD7CD;
+            color: #DAD7CD;
             transform: translateY(-3px);
         }
+	/* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+        }
 
+        .modal-content {
+            background-color: #DAD7CD;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #344E41;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #A3B18A;
+            text-decoration: none;
+            cursor: pointer;
+        }
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -182,7 +217,8 @@
                 padding: 1.2rem 1.8rem;
             }
         }
-	.add-to-cart {
+
+        .add-to-cart {
             background-color: #588157;
             color: #DAD7CD;
             border: none;
@@ -201,7 +237,8 @@
 <body>
     <header class="navbar">
         <div class="logo">
-<img src="Logo1.png" height=50px ></div>
+            <img src="Logo1.png" height="50px">
+        </div>
         <nav>
             <ul class="nav-links">
                 <li><a href="#rent">Rent</a></li>
@@ -223,86 +260,252 @@
                     <img src="electronics-laptop.webp" alt="Laptop">
                     <h3>Laptop</h3>
                     <p>₹29,999/mo</p>
-		    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="electronics-smartphone.avif" alt="Smartphone">
                     <h3>Smartphone</h3>
-                    <p>₹1,199/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                    <p>₹1,199/mo</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="electronics-tv.avif" alt="Television">
                     <h3>Television</h3>
-                    <p>₹2,999/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                    <p>₹2,999/mo</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="electronics-headphones.jpg" alt="Headphones">
                     <h3>Headphones</h3>
-                    <p>₹499/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                    <p>₹499/mo</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="electronics-speaker.avif" alt="Speaker">
                     <h3>Bluetooth Speaker</h3>
-                    <p>₹1,199/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                    <p>₹1,199/mo</p>
+                    <button class="add-to-cart">Add to Cart</button>
                 </div>
             </div>
         </section>
+
         <section class="category-items">
             <div class="category-item">
                 <img src="electronics-monitor.png" alt="Monitor">
                 <h3>Monitor</h3>
-                <p>₹1,999/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                <p>₹1,999/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="electronics-keyboard.jpg" alt="Keyboard">
                 <h3>Mechanical Keyboard</h3>
-                <p>₹799/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                <p>₹799/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="electronics-mouse.jpg" alt="Mouse">
                 <h3>Gaming Mouse</h3>
-                <p>₹599/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                <p>₹599/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="electronics-webcam.png" alt="Webcam">
                 <h3>Webcam</h3>
-                <p>₹1,299/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                <p>₹1,299/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
         </section>
+
         <section class="category-items">
             <div class="category-item">
-                    <img src="electronics-speaker.avif" alt="Speaker">
-                    <h3>Bluetooth Speaker</h3>
-                    <p>₹1,199/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
-                </div>
+                <img src="electronics-speaker.avif" alt="Speaker">
+                <h3>Bluetooth Speaker</h3>
+                <p>₹1,199/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
             <div class="category-item">
-                    <img src="electronics-laptop.webp" alt="Laptop">
-                    <h3>Laptop</h3>
-                    <p>₹29,999/mo</p>
-		    <button class="add-to-cart">Add to Cart</button>
-                </div>
-           <div class="category-item">
-                    <img src="electronics-tv.avif" alt="Television">
-                    <h3>Television</h3>
-                    <p>₹2,999/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
-                </div>
+                <img src="electronics-laptop.webp" alt="Laptop">
+                <h3>Laptop</h3>
+                <p>₹29,999/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="category-item">
+                <img src="electronics-tv.avif" alt="Television">
+                <h3>Television</h3>
+                <p>₹2,999/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
             <div class="category-item">
                 <img src="electronics-keyboard.jpg" alt="Keyboard">
                 <h3>Mechanical Keyboard</h3>
-                <p>₹799/mo</p>		    
-		    <button class="add-to-cart">Add to Cart</button>
+                <p>₹799/mo</p>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
         </section>
+
+        <!-- Modals for all products -->
+        <!-- Modal for Laptop -->
+        <div id="laptopModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('laptopModal')">&times;</span>
+                <h2>Laptop</h2>
+                <img src="electronics-laptop.webp" alt="Laptop" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹29,999/mo</p>
+                <p>Description: High-performance laptop suitable for all your needs.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.9/5)</p>
+                    <p>"Excellent performance!" - User A</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Smartphone -->
+        <div id="smartphoneModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('smartphoneModal')">&times;</span>
+                <h2>Smartphone</h2>
+                <img src="electronics-smartphone.avif" alt="Smartphone" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,199/mo</p>
+                <p>Description: Latest smartphone with advanced features.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.5/5)</p>
+                    <p>"Great camera quality!" - User B</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Television -->
+        <div id="tvModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('tvModal')">&times;</span>
+                <h2>Television</h2>
+                <img src="electronics-tv.avif" alt="Television" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹2,999/mo</p>
+                <p>Description: 55-inch 4K Ultra HD Smart TV.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (5.0/5)</p>
+                    <p>"Amazing picture quality!" - User C</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Headphones -->
+        <div id="headphonesModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('headphonesModal')">&times;</span>
+                <h2>Headphones</h2>
+                <img src="electronics-headphones.jpg" alt="Headphones" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹499/mo</p>
+                <p>Description: Noise-cancelling headphones for an immersive experience.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.4/5)</p>
+                    <p>"Great sound quality!" - User D</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Bluetooth Speaker -->
+        <div id="speakerModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('speakerModal')">&times;</span>
+                <h2>Bluetooth Speaker</h2>
+                <img src="electronics-speaker.avif" alt="Bluetooth Speaker" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,199/mo</p>
+                <p>Description: Portable Bluetooth speaker with great sound quality.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.8/5)</p>
+                    <p>"Perfect for parties!" - User E</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Monitor -->
+        <div id="monitorModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('monitorModal')">&times;</span>
+                <h2>Monitor</h2>
+                <img src="electronics-monitor.png" alt="Monitor" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,999/mo</p>
+                <p>Description: 24-inch Full HD monitor for gaming and work.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.6/5)</p>
+                    <p>"Great for gaming!" - User F</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Mechanical Keyboard -->
+        <div id="keyboardModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('keyboardModal')">&times;</span>
+                <h2>Mechanical Keyboard</h2>
+                <img src="electronics-keyboard.jpg" alt="Mechanical Keyboard" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹799/mo</p>
+                <p>Description: High-quality mechanical keyboard for gamers.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.9/5)</p>
+                    <p>"Best keyboard I've ever used!" - User G</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Gaming Mouse -->
+        <div id="mouseModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('mouseModal')">&times;</span>
+                <h2>Gaming Mouse</h2>
+                <img src="electronics-mouse.jpg" alt="Gaming Mouse" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹599/mo</p>
+                <p>Description: Ergonomic gaming mouse with customizable buttons.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐ (4.4/5)</p>
+                    <p>"Very responsive!" - User H</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
+        <!-- Modal for Webcam -->
+        <div id="webcamModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('webcamModal')">&times;</span>
+                <h2>Webcam</h2>
+                <img src="electronics-webcam.png" alt="Webcam" style="width: 100%; height: auto; border-radius: 8px;">
+                <p>Price: ₹1,299/mo</p>
+                <p>Description: HD webcam for video calls and streaming.</p>
+                <div class="reviews">
+                    <h3>Reviews</h3>
+                    <p>⭐⭐⭐⭐⭐ (4.7/5)</p>
+                    <p>"Great quality for the price!" - User I</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+
     </main>
 
     <footer class="footer">
@@ -313,5 +516,63 @@
         </div>
         <p>&copy; 2025 BucketIt. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Function to open the modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Add event listeners to each product title to open the corresponding modal
+        document.querySelectorAll('.category-item h3').forEach((item, index) => {
+            const modals = [
+                'laptopModal', 
+                'smartphoneModal', 
+                'tvModal', 
+                'headphonesModal', 
+                'speakerModal', 
+                'monitorModal', 
+                'keyboardModal', 
+                'mouseModal', 
+                'webcamModal', 
+                'speakerModal',
+		'laptopModal',
+		'tvModal',
+		'keyboardModal'
+            ];
+            item.onclick = function() {
+                openModal(modals[index]);
+            }
+        });
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            const modals = [
+                'laptopModal', 
+                'smartphoneModal', 
+                'tvModal', 
+                'headphonesModal', 
+                'speakerModal', 
+                'monitorModal', 
+                'keyboardModal', 
+                'mouseModal', 
+                'webcamModal', 
+                'speakerModal',
+		'laptopModal',
+		'tvModal',
+		'keyboardModal'
+            ];
+            modals.forEach(modalId => {
+                if (event.target == document.getElementById(modalId)) {
+                    closeModal(modalId);
+                }
+            });
+        }
+    </script>
 </body>
 </html>
