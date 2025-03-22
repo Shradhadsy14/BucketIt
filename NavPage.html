@@ -180,6 +180,20 @@ nav {
     padding: 0.2rem 0.5rem;
     font-size: 0.9rem;
 }
+	    .cart-button button {
+    background-color: #FFD275;
+    color: #3A6351;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cart-button button:hover {
+    background-color: #E8AE68;
+}
+
 
     </style>
 </head>
@@ -200,6 +214,10 @@ nav {
         <a href="#cart" class="cart-button">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count">0</span>
+		<div>
+    <button onclick="proceedToPayment()">🛒 Cart (<span id="cart-counter">0</span>)</button>
+</div>
+
         </a>
     </div>
 </header>
@@ -354,6 +372,32 @@ nav {
                 </div>
             </div>
         </section>
+	    <section id="featured-products" class="categories">
+    <h2>Featured Products</h2>
+    <div class="category-grid">
+        <div class="category-item">
+            <img src="cot.jpg" alt="Wooden Cot">
+            <h3>Wooden Cot - ₹1299/month</h3>
+            <button onclick="addToCart('Wooden Cot', 1299)">Add to Cart</button>
+        </div>
+        <div class="category-item">
+            <img src="nightstand.jpg" alt="Nightstand">
+            <h3>Nightstand - ₹799/month</h3>
+            <button onclick="addToCart('Nightstand', 799)">Add to Cart</button>
+        </div>
+        <div class="category-item">
+            <img src="dresser.jpg" alt="Dresser">
+            <h3>Dresser - ₹1499/month</h3>
+            <button onclick="addToCart('Dresser', 1499)">Add to Cart</button>
+        </div>
+        <div class="category-item">
+            <img src="lamp.jpg" alt="Table Lamp">
+            <h3>Table Lamp - ₹599/month</h3>
+            <button onclick="addToCart('Table Lamp', 599)">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
     </main>
 
     <footer class="footer">
@@ -368,20 +412,26 @@ nav {
     let cartCount = 0;
 
     // Function to add items to cart
-    function addToCart(item) {
-        cartCount++;
-        document.getElementById("cart-counter").innerText = cartCount;
-        alert(item + " added to cart!");
-    }
+   let cartCount = 0;
+let cartTotal = 0;
 
-    // Proceed to payment page
-    function proceedToPayment() {
-        if (cartCount === 0) {
-            alert("Your cart is empty. Add items before proceeding to payment!");
-        } else {
-            window.location.href = "payment.html";
-        }
+// Function to add items to the cart
+function addToCart(item, price) {
+    cartCount++;
+    cartTotal += price;
+    document.getElementById("cart-counter").innerText = cartCount;
+    alert(item + " added to cart! Total: ₹" + cartTotal);
+}
+
+// Proceed to payment page
+function proceedToPayment() {
+    if (cartCount === 0) {
+        alert("Your cart is empty. Add items before proceeding to payment!");
+    } else {
+        window.location.href = "payment.html";
     }
+}
+
 </script>
 
 </body>
