@@ -364,5 +364,26 @@ nav {
         </div>
         <p>&copy; 2024 BucketIt. All rights reserved.</p>
     </footer>
+	    <script>
+    let cartCount = 0;
+
+    // Function to add items to cart
+    function addToCart(item) {
+        cartCount++;
+        document.getElementById("cart-counter").innerText = cartCount;
+        alert(item + " added to cart!");
+    }
+
+    // Proceed to payment page
+    function proceedToPayment() {
+        if (cartCount === 0) {
+            alert("Your cart is empty. Add items before proceeding to payment!");
+        } else {
+            window.location.href = "payment.html";
+        }
+    }
+</script>
+
 </body>
+	
 </html>
