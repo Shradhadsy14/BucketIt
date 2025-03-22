@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin-top: 50px; text-align: center; }
+        .container { width: 50%; margin: auto; background: #fff; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        button { padding: 10px 20px; margin-top: 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Checkout</h2>
+        <p>Your items have been added to the cart. Proceed to make a payment.</p>
+        <button onclick="confirmPayment()">Pay Now</button>
+    </div>
+
+    <script>
+        function confirmPayment() {
+            alert("Payment Successful! Thank you for shopping with BucketIt!");
+            window.location.href = "nav.html"; // Redirect back to nav after payment
+        }
+    </script>
+</body>
+</html>
