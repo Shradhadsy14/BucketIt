@@ -574,6 +574,33 @@
                 }
             });
         }
+    // Load cart count on page load
+    function loadCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        document.getElementById("cart-counter").innerText = cart.length;
+    }
+
+    // Add item to cart and update count
+    function addToCart(item, price) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ item: item, price: price });
+        localStorage.setItem("cart", JSON.stringify(cart));
+        document.getElementById("cart-counter").innerText = cart.length;
+        alert(item + " added to cart!");
+    }
+
+    // Proceed to payment page
+    function proceedToPayment() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (cart.length === 0) {
+            alert("Your cart is empty. Add items before proceeding to payment!");
+        } else {
+            window.location.href = "payment.html";
+        }
+    }
+
+    // Load cart count on page load
+    window.onload = loadCartCount;
     </script>
 </body>
 </html>
