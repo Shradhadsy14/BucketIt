@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BucketIt - Checkout</title>
+  <link href="css/all.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #EAE3D2;
+    }
+    .header {
+      background: #3E5C38;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+    .header .logo img {
+      height: 40px;
+      margin-right: 1rem;
+    }
+    .header nav a {
+      color: #fff;
+      margin-right: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .header nav a:hover { text-decoration: underline; }
+
+    .main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .main h2 {
+      color: #3E5C38;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .checkout-item {
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .checkout-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 1rem;
+    }
+    .item-info {
+      flex: 1;
+    }
+    .item-info h3 {
+      margin: 0;
+      color: #283618;
+      font-size: 1.2rem;
+    }
+    .item-info p {
+      margin: 0.3rem 0;
+      color: #606C38;
+      font-size: 1rem;
+    }
+
+    .summary {
+      text-align: right;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #283618;
+    }
+    .place-order {
+      display: block;
+      margin: 2rem auto;
+      background: #F4CC70;
+      color: #3E5C38;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+    .place-order:hover { opacity: 0.9; }
+
+    .footer {
+      background: #3E5C38;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <a href="NavPage.html"><img src="images/Logo1.png" alt="BucketIt Logo"></a>
+    </div>
+    <nav>
+      <a href="NavPage.html">Rent</a>
+      <a href="Buy.html">Buy</a>
+      <a href="Offers.html">Offers</a>
+      <a href="Cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CHECKOUT CONTENT -->
+  <main class="main">
+    <h2>Review Your Order</h2>
+    <div id="checkoutItems">
+      <!-- Items will be injected here -->
+    </div>
+    <div class="summary">
+      Grand Total: ₹<span id="grandTotal">0.00</span>
+    </div>
+    <button class="place-order" onclick="placeOrder()">Place Order</button>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2025 BucketIt. All rights reserved.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const itemsContainer = document.getElementById('checkoutItems');
+      const totalEl = document.getElementById('grandTotal');
+      // Retrieve cart from localStorage
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let grandTotal = 0;
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+      } else {
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          grandTotal += itemTotal;
+          // Create item HTML block
+          const div = document.createElement('div');
+          div.className = 'checkout-item';
+          div.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="item-info">
+              <h3>${item.name}</h3>
+              <p>₹${item.price.toFixed(2)} x ${item.quantity}</p>
+              <p>Subtotal: ₹${itemTotal.toFixed(2)}</p>
+            </div>
+          `;
+          itemsContainer.appendChild(div);
+        });
+      }
+      totalEl.textContent = grandTotal.toFixed(2);
+    });
+
+    function placeOrder() {
+      // For prototype: clear cart and redirect or show message
+      localStorage.removeItem('cart');
+      alert('Thank you! Your order has been placed.');
+      window.location.href = 'NavPage.html';
+    }
+  </script>
+</body>
+</html>
