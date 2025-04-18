@@ -56,6 +56,12 @@
             transform: scale(1.1);
         }
 
+        .cart {
+            color: #DAD7CD;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
         /* Header Section */
         .category-header {
             background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
@@ -139,7 +145,7 @@
         }
 
         .footer-links a {
-            color: #A3B18A;
+            color: #A3B 18A;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -149,7 +155,7 @@
             color: #DAD7CD;
             transform: translateY(-3px);
         }
-	/* Modal Styles */
+        /* Modal Styles */
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
@@ -278,7 +284,7 @@
                     <img src="electronics-headphones.jpg" alt="Headphones">
                     <h3>Headphones</h3>
                     <p>₹499/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class ="add-to-cart">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="electronics-speaker.avif" alt="Speaker">
@@ -376,7 +382,7 @@
                     <p>"Great camera quality!" - User B</p>
                 </div>
                 <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
+                <button class="buy-now ">Buy Now</button>
             </div>
         </div>
 
@@ -539,11 +545,7 @@
                 'monitorModal', 
                 'keyboardModal', 
                 'mouseModal', 
-                'webcamModal', 
-                'speakerModal',
-		'laptopModal',
-		'tvModal',
-		'keyboardModal'
+                'webcamModal'
             ];
             item.onclick = function() {
                 openModal(modals[index]);
@@ -561,11 +563,7 @@
                 'monitorModal', 
                 'keyboardModal', 
                 'mouseModal', 
-                'webcamModal', 
-                'speakerModal',
-		'laptopModal',
-		'tvModal',
-		'keyboardModal'
+                'webcamModal'
             ];
             modals.forEach(modalId => {
                 if (event.target == document.getElementById(modalId)) {
