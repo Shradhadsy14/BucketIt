@@ -56,6 +56,11 @@
             transform: scale(1.1);
         }
 
+        .cart {
+            color: #DAD7CD;
+            font-size: 1.2rem;
+        }
+
         /* Header Section */
         .category-header {
             background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
@@ -140,7 +145,7 @@
         }
 
         .footer-links a {
-            color: #A3B18A;
+            color: #A 3B18A;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -249,6 +254,9 @@
                 <li><a href="#offers">Offers</a></li>
                 <li><a href="https://shradhadsy14.github.io/BucketIt/Login.html">LogIn</a></li>
             </ul>
+            <div class="cart">
+                <span id="cart-count">0</span> items in cart
+            </div>
         </nav>
     </header>
 
@@ -372,7 +380,7 @@
                 <h2>Dining Chair</h2>
                 <img src="dining-chair.webp" alt="Dining Chair" style="width: 100%; height: auto; border-radius: 8px;">
                 <p>Price: ₹499/mo</p>
-                <p>Description: Comfortable dining chair that complements your dining table.</p>
+                <p>Description: Comfortable dining chair that complements your dining table.</ p>
                 <div class="reviews">
                     <h3>Reviews</h3>
                     <p>⭐⭐⭐⭐ (4.5/5)</p>
@@ -411,7 +419,7 @@
                 <p>Description: A stylish dining bench that adds extra seating.</p>
                 <div class="reviews">
                     <h3>Reviews</h3>
- <p>⭐⭐⭐⭐ (4.2/5)</p>
+                    <p>⭐⭐⭐⭐ (4.2/5)</p>
                     <p>"Great for family meals!" - User D</p>
                 </div>
                 <button class="add-to-cart">Add to Cart</button>
@@ -496,7 +504,7 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal('saltPepperModal')">&times;</span>
                 <h2>Salt and Pepper Shaker</h2>
-                <img src="dining-saltpepper.webp" alt="Salt and Pepper Shaker" style=" width: 100%; height: auto; border-radius: 8px;">
+                <img src="dining-saltpepper.webp" alt="Salt and Pepper Shaker" style="width: 100%; height: auto; border-radius: 8px;">
                 <p>Price: ₹1,499/mo</p>
                 <p>Description: Stylish salt and pepper shaker set for your dining table.</p>
                 <div class="reviews">
@@ -539,6 +547,19 @@
     </footer>
 
     <script>
+        let cartCount = 0;
+
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                cartCount++;
+                updateCartCount();
+            });
+        });
+
         // Function to open the modal
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
@@ -549,7 +570,7 @@
             document.getElementById(modalId).style.display = "none";
         }
 
-        // Add event listeners to each product title to open the corresponding modal
+        // Add event listeners to eachproduct title to open the corresponding modal
         document.querySelectorAll('.category-item h3').forEach((item, index) => {
             const modals = [
                 'diningTableModal', 
@@ -561,10 +582,7 @@
                 'tableLinensModal', 
                 'dinnerwareModal', 
                 'saltPepperModal', 
-		'dinnerwareModal',
-                'spoonStandModal',
-		'diningCabinetModal',
-		'diningTableModal'
+                'spoonStandModal'
             ];
             item.onclick = function() {
                 openModal(modals[index]);
@@ -583,10 +601,7 @@
                 'tableLinensModal', 
                 'dinnerwareModal', 
                 'saltPepperModal', 
-		'dinnerwareModal',
-                'spoonStandModal',
-		'diningCabinetModal',
-		'diningTableModal'
+                'spoonStandModal'
             ];
             modals.forEach(modalId => {
                 if (event.target == document.getElementById(modalId)) {
