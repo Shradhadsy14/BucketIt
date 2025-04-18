@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BucketIt – Your Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/all.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #EAE3D2;
+    }
+    .header {
+      background: #3E5C38;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+    .header .logo img {
+      height: 40px;
+      margin-right: 2rem;
+    }
+    .header nav a {
+      color: #fff;
+      margin-right: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .header nav a:hover { text-decoration: underline; }
+    .header .cart-icon {
+      margin-left: auto;
+      position: relative;
+    }
+    .header .cart-icon i {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .header .cart-count {
+      position: absolute;
+      top: -6px; right: -10px;
+      background: #F4CC70;
+      color: #3E5C38;
+      border-radius: 50%;
+      width: 20px; height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .main h2 {
+      color: #3E5C38;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .cart-items {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 600px) {
+      .cart-items { grid-template-columns: 1fr 1fr; }
+    }
+
+    .cart-item {
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .cart-item img {
+      width: 120px;
+      object-fit: cover;
+    }
+    .item-details {
+      flex: 1;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .item-details h3 {
+      margin: 0;
+      color: #283618;
+      font-size: 1.2rem;
+    }
+    .item-details .price {
+      color: #606C38;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    .quantity-control {
+      display: flex;
+      align-items: center;
+    }
+    .quantity-control button {
+      background: #F4CC70;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      margin: 0 0.5rem;
+    }
+    .quantity-control span {
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .summary {
+      margin-top: 2rem;
+      text-align: right;
+    }
+    .summary p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .checkout-btn {
+      background: #F4CC70;
+      color: #3E5C38;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .checkout-btn:hover {
+      opacity: 0.9;
+    }
+
+    .footer {
+      background: #3E5C38;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <a href="NavPage.html"><img src="images/Logo1.png" alt="BucketIt Logo"></a>
+    </div>
+    <nav>
+      <a href="NavPage.html">Rent</a>
+      <a href="Buy.html">Buy</a>
+      <a href="Offers.html">Offers</a>
+      <a href="Login.html">LogIn</a>
+    </nav>
+    <div class="cart-icon">
+      <i class="fas fa-shopping-cart"></i>
+      <div class="cart-count" id="cartCount">0</div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main">
+    <h2>Your Shopping Cart</h2>
+
+    <div class="cart-items" id="cartItems">
+      <!-- Example Item -->
+      <div class="cart-item">
+        <img src="images/Books-AtomicHabits.jpg" alt="Atomic Habits">
+        <div class="item-details">
+          <h3>Atomic Habits</h3>
+          <p class="price">$12.99</p>
+          <div class="quantity-control">
+            <button data-action="decrease">−</button>
+            <span>1</span>
+            <button data-action="increase">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat cart-item blocks for each product -->
+    </div>
+
+    <div class="summary">
+      <p>Subtotal: $<span id="subtotal">12.99</span></p>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    © 2025 BucketIt. All rights reserved.
+  </footer>
+
+  <script>
+    // Simple JS to update cart count & subtotal based on the items in #cartItems
+    document.addEventListener('DOMContentLoaded', () => {
+      const cartCountEl = document.getElementById('cartCount');
+      const subtotalEl = document.getElementById('subtotal');
+      const itemsContainer = document.getElementById('cartItems');
+
+      function updateSummary() {
+        const items = itemsContainer.querySelectorAll('.cart-item');
+        let totalQty = 0, totalPrice = 0;
+
+        items.forEach(item => {
+          const qty = +item.querySelector('.quantity-control span').textContent;
+          const price = parseFloat(item.querySelector('.price').textContent.replace('$',''));
+          totalQty += qty;
+          totalPrice += price * qty;
+        });
+
+        cartCountEl.textContent = totalQty;
+        subtotalEl.textContent = totalPrice.toFixed(2);
+      }
+
+      // handle + / - buttons
+      itemsContainer.addEventListener('click', e => {
+        if (!e.target.matches('button[data-action]')) return;
+        const span = e.target.parentElement.querySelector('span');
+        let qty = +span.textContent;
+        qty = e.target.dataset.action === 'increase' ? qty + 1 : Math.max(1, qty - 1);
+        span.textContent = qty;
+        updateSummary();
+      });
+
+      updateSummary();
+    });
+  </script>
+</body>
+</html>
