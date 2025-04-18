@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Hexagon Western Restaurant - Sign Up</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/all.css" rel="stylesheet">
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/all.js"></script>
-    <link href="css/forms.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
+  <meta charset="UTF-8">
+  <title>Hexagon Western Restaurant - Sign Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/all.css" rel="stylesheet">
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/all.js"></script>
+  <link href="css/forms.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
         /* Add Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap');
 
@@ -325,94 +326,111 @@
                 /* Full width buttons on mobile */
             }
         }
-    </style>
+  </style>
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="header">
-            <h1><a href="#">EXPLORE.RENT.REPEAT!!</a></h1>
-        </div>
-        <div class="main">
-            <div class="form-signup">
-                <h2>BucketIt</h2>
-                <h3>Love it.. Rent it..</h3>
-                <form class="pure-form pure-form-stacked">
-                    <label for="name">Full Name*</label>
-                    <div class="namewrap">
-                        <i class="fas fa-user"></i>
-                        <input class="detailinput" id="name" type="text" placeholder="Full Name" required>
-                    </div>
-                    <label for="email">Email Address*</label>
-                    <div class="emailwrap">
-                        <i class="far fa-envelope"></i>
-                        <input class="detailinput" id="email" type="email" placeholder="Email" required>
-                    </div>
-                    <label for="password">Password*</label>
-                    <div class="psdwrap">
-                        <i class="fas fa-lock"></i>
-                        <input class="detailinput" id="password" type="password" placeholder="Password" required>
-                    </div>
-                    <label for="confirm-password">Confirm Password*</label>
-                    <div class="confirmpwdwrap">
-                        <i class="fas fa-lock"></i>
-                        <input class="detailinput" id="confirm-password" type="password" placeholder="Confirm Password"
-                            required>
-                    </div>
-                    <p class="forgetpsd"><a href="https://shradhadsy14.github.io/BucketIt/Login.html">Already have an account? Login</a></p>
-                    <div>
-                        <input type="submit" class="loginbtn" value="Sign In"><a href="https://shradhadsy14.github.io/BucketIt/Dining.html">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="about">
-                <h2>About Us</h2>
-                <p>We are dedicated to providing the best rental experience.</p>
-            </div>
-            <div class="connect">
-                <h2>Connect</h2>
-                <ul>
-                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
-                    <li><i class="fas fa-envelope"></i> info@bucketit.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> 123 Rental St, City, Country</li>
-                </ul>
-            </div>
-        </div>
+  <div class="wrap">
+    <div class="header">
+      <h1><a href="#">EXPLORE.RENT.REPEAT!!</a></h1>
     </div>
+    <div class="main">
+      <div class="form-signup">
+        <h2>BucketIt</h2>
+        <h3>Love it.. Rent it..</h3>
+        <form id="signupForm" class="pure-form pure-form-stacked">
+          <label for="name">Full Name*</label>
+          <div class="namewrap">
+            <i class="fas fa-user"></i>
+            <input class="detailinput" id="name" type="text" placeholder="Full Name" required>
+          </div>
+
+          <label for="email">Email Address*</label>
+          <div class="emailwrap">
+            <i class="far fa-envelope"></i>
+            <input class="detailinput" id="email" type="email" placeholder="Email" required>
+          </div>
+
+          <label for="password">Password*</label>
+          <div class="psdwrap">
+            <i class="fas fa-lock"></i>
+            <input class="detailinput" id="password" type="password" placeholder="Password" required>
+          </div>
+
+          <label for="confirm-password">Confirm Password*</label>
+          <div class="confirmpwdwrap">
+            <i class="fas fa-lock"></i>
+            <input class="detailinput" id="confirm-password" type="password" placeholder="Confirm Password" required>
+          </div>
+
+          <p class="forgetpsd">
+            <a href="https://shradhadsy14.github.io/BucketIt/Login.html">Already have an account? Login</a>
+          </p>
+
+          <input type="submit" class="loginbtn" value="Sign Up">
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="about">
+        <h2>About Us</h2>
+        <p>We are dedicated to providing the best rental experience.</p>
+      </div>
+      <div class="connect">
+        <h2>Connect</h2>
+        <ul>
+          <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+          <li><i class="fas fa-envelope"></i> info@bucketit.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Rental St, City, Country</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup JS -->
+  <script>
+    const signupForm = document.getElementById("signupForm");
+
+    signupForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+
+      if (!email || !password || !confirmPassword) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      if (!email.includes("@")) {
+        alert("Please enter a valid email.");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      // Save user to localStorage
+      localStorage.setItem("userEmail", email);
+      localStorage.setItem("userPassword", password);
+
+      alert("Signup successful! Redirecting to login page...");
+
+      setTimeout(() => {
+        window.location.href = "Login.html";
+      }, 1500);
+    });
+  </script>
 </body>
-<script>
-  const signupForm = document.getElementById("signupForm");
-
-  signupForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // prevent form from submitting
-
-    const email = document.getElementById("signupEmail").value;
-    const password = document.getElementById("signupPassword").value;
-
-    if (!email || !password) {
-      alert("Please fill in all fields.");
-      return;
-    }
-
-    if (!email.includes("@")) {
-      alert("Please enter a valid email.");
-      return;
-    }
-
-    if (password.length < 6) {
-      alert("Password must be at least 6 characters.");
-      return;
-    }
-
-    // Save user to localStorage
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
-
-    alert("Signup successful! You can now login.");
-    window.location.href = "Login.html";
-  });
-</script>
 
 </html>
+
