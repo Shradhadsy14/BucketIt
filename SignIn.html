@@ -382,5 +382,37 @@
         </div>
     </div>
 </body>
+<script>
+  const signupForm = document.getElementById("signupForm");
+
+  signupForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // prevent form from submitting
+
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+
+    if (!email || !password) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      alert("Please enter a valid email.");
+      return;
+    }
+
+    if (password.length < 6) {
+      alert("Password must be at least 6 characters.");
+      return;
+    }
+
+    // Save user to localStorage
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
+
+    alert("Signup successful! You can now login.");
+    window.location.href = "Login.html";
+  });
+</script>
 
 </html>
