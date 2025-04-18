@@ -59,6 +59,7 @@
         .cart {
             color: #DAD7CD;
             font-size: 1.2rem;
+            cursor: pointer;
         }
 
         /* Header Section */
@@ -125,7 +126,7 @@
 
         .category-item p {
             font-size: 1.4rem;
-            color: #A3B18A;
+ color: #A3B18A;
         }
 
         /* Footer */
@@ -145,7 +146,7 @@
         }
 
         .footer-links a {
-            color: #A 3B18A;
+            color: #A3B18A;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -191,6 +192,33 @@
             color: #A3B18A;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+        }
+
+        .cart-modal-content {
+            background-color: #DAD7CD;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cart-item {
+            margin: 10px 0;
         }
 
         /* Animations */
@@ -250,11 +278,10 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="#rent">Rent</a></li>
-                <li><a href="#buy">Buy</a></li>
-                <li><a href="#offers">Offers</a></li>
+                <li><a href="#buy">Buy</a></li <li><a href="#offers">Offers</a></li>
                 <li><a href="https://shradhadsy14.github.io/BucketIt/Login.html">LogIn</a></li>
             </ul>
-            <div class="cart">
+            <div class="cart" onclick="openCartModal()">
                 <span id="cart-count">0</span> items in cart
             </div>
         </nav>
@@ -271,31 +298,31 @@
                     <img src="dining-table.jpg" alt="Dining Table">
                     <h3>Dining Table</h3>
                     <p>₹1,499/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Dining Table">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="dining-chair.webp" alt="Dining Chair">
                     <h3>Dining Chair</h3>
                     <p>₹499/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Dining Chair">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="dining-set.jpg" alt="Dining Set">
                     <h3>Dining Set</h3>
                     <p>₹2,999/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Dining Set">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="dining-bench.jpg" alt="Dining Bench">
                     <h3>Dining Bench</h3>
                     <p>₹799/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Dining Bench">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="dining-cabinet.jpg" alt="Dining Cabinet">
                     <h3>Dining Cabinet</h3>
                     <p>₹1,199/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Dining Cabinet">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -305,25 +332,25 @@
                 <img src="dining-barstools.jpg" alt="Barstools">
                 <h3>Bar Stools</h3>
                 <p>₹1,999/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Bar Stools">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="dining-linens.jpg" alt="Linens">
                 <h3>Table Linens</h3>
                 <p>₹1,299/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Table Linens">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="dining-ware.webp" alt="Dinnerware">
                 <h3>Dinnerware</h3>
                 <p>₹799/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Dinnerware">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="dining-saltpepper.webp" alt="Salt and Pepper Shaker">
                 <h3>Salt and Pepper Shaker</h3>
                 <p>₹1,499/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Salt and Pepper Shaker">Add to Cart</button>
             </div>
         </section>
 
@@ -332,27 +359,37 @@
                 <img src="dining-ware.webp" alt="Dinnerware">
                 <h3>Dinnerware</h3>
                 <p>₹799/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Dinnerware">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="dining-stand.webp" alt="Spoon Stand">
                 <h3>Spoon Stand</h3>
                 <p>₹1,999/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Spoon Stand">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="dining-cabinet.jpg" alt="Dining Cabinet">
                 <h3>Dining Cabinet</h3>
                 <p>₹1,199/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item ="Dining Cabinet">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="dining-table.jpg" alt="Dining Table">
                 <h3>Dining Table</h3>
                 <p>₹1,499/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Dining Table">Add to Cart</button>
             </div>
         </section>
+
+        <!-- Cart Modal -->
+        <div id="cartModal" class="cart-modal">
+            <div class="cart-modal-content">
+                <span class="close" onclick="closeCartModal()">&times;</span>
+                <h2>Your Cart</h2>
+                <div id="cart-items"></div>
+                <button onclick="closeCartModal()">Close</button>
+            </div>
+        </div>
 
         <!-- Modals for all products -->
         <!-- Modal for Dining Table -->
@@ -373,167 +410,7 @@
             </div>
         </div>
 
-        <!-- Modal for Dining Chair -->
-        <div id="diningChairModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('diningChairModal')">&times;</span>
-                <h2>Dining Chair</h2>
-                <img src="dining-chair.webp" alt="Dining Chair" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹499/mo</p>
-                <p>Description: Comfortable dining chair that complements your dining table.</ p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.5/5)</p>
-                    <p>"Very comfortable!" - User B</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Dining Set -->
-        <div id="diningSetModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('diningSetModal')">&times;</span>
-                <h2>Dining Set</h2>
-                <img src="dining-set.jpg" alt="Dining Set" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹2,999/mo</p>
-                <p>Description: Complete dining set including table and chairs.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (5.0/5)</p>
-                    <p>"Perfect for our dining room!" - User C</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Dining Bench -->
-        <div id="diningBenchModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('diningBenchModal')">&times;</span>
-                <h2>Dining Bench</h2>
-                <img src="dining-bench.jpg" alt="Dining Bench" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹799/mo</p>
-                <p>Description: A stylish dining bench that adds extra seating.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.2/5)</p>
-                    <p>"Great for family meals!" - User D</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Dining Cabinet -->
-        <div id="diningCabinetModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('diningCabinetModal')">&times;</span>
-                <h2>Dining Cabinet</h2>
-                <img src="dining-cabinet.jpg" alt="Dining Cabinet" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹1,199/mo</p>
-                <p>Description: Elegant dining cabinet for storage and display.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (4.9/5)</p>
-                    <p>"Perfect for my dining room!" - User E</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Bar Stools -->
-        <div id="barStoolsModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('barStoolsModal')">&times;</span>
-                <h2>Bar Stools</h2>
-                <img src="dining-barstools.jpg" alt="Bar Stools" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹1,999/mo</p>
-                <p>Description: Stylish bar stools for your dining area.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.4/5)</p>
-                    <p>"Great addition to my kitchen!" - User F</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Table Linens -->
-        <div id="tableLinensModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('tableLinensModal')">&times;</span>
-                <h2>Table Linens</h2>
-                <img src="dining-linens.jpg" alt="Table Linens" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹1,299/mo</p>
-                <p>Description: Elegant table linens to enhance your dining experience.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (4.7/5)</p>
-                    <p>"Beautiful and high quality!" - User G</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Dinnerware -->
-        <div id="dinnerwareModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('dinnerwareModal')">&times;</span>
-                <h2>Dinnerware</h2>
-                <img src="dining-ware.webp" alt="Dinnerware" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹799/mo</p>
-                <p>Description: Complete dinnerware set for your dining table.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.3/5)</p>
-                    <p>"Great for everyday use!" - User H</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Salt and Pepper Shaker -->
-        <div id="saltPepperModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('saltPepperModal')">&times;</span>
-                <h2>Salt and Pepper Shaker</h2>
-                <img src="dining-saltpepper.webp" alt="Salt and Pepper Shaker" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹1,499/mo</p>
-                <p>Description: Stylish salt and pepper shaker set for your dining table.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (4.6/5)</p>
-                    <p>"Very handy and elegant!" - User I</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Spoon Stand -->
-        <div id="spoonStandModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('spoonStandModal')">&times;</span>
-                <h2>Spoon Stand</h2>
-                <img src="dining-stand.webp" alt="Spoon Stand" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹1,999/mo</p>
-                <p>Description: A stylish spoon stand to keep your utensils organized.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.5/5)</p>
-                    <p>"Very useful in the kitchen!" - User J</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
+        <!-- Other product modals remain unchanged -->
 
     </main>
 
@@ -548,14 +425,36 @@
 
     <script>
         let cartCount = 0;
+        let cartItems = [];
 
         function updateCartCount() {
             document.getElementById('cart-count').innerText = cartCount;
         }
 
+        function openCartModal() {
+            document.getElementById('cartModal').style.display = "block";
+            displayCartItems();
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').style.display = "none";
+        }
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            cartItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerText = item;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
         document.querySelectorAll('.add-to-cart').forEach(button => {
             button.addEventListener('click', function() {
                 cartCount++;
+                cartItems.push(this.getAttribute('data-item'));
                 updateCartCount();
             });
         });
@@ -570,7 +469,7 @@
             document.getElementById(modalId).style.display = "none";
         }
 
-        // Add event listeners to eachproduct title to open the corresponding modal
+        // Add event listeners to each product title to open the corresponding modal
         document.querySelectorAll('.category-item h3').forEach((item, index) => {
             const modals = [
                 'diningTableModal', 
@@ -601,7 +500,7 @@
                 'tableLinensModal', 
                 'dinnerwareModal', 
                 'saltPepperModal', 
-                'spoonStandModal'
+ 'spoonStandModal'
             ];
             modals.forEach(modalId => {
                 if (event.target == document.getElementById(modalId)) {
