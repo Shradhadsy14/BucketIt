@@ -274,24 +274,26 @@
 
   <!-- Login Script -->
   <script>
-    const loginForm = document.getElementById("loginForm");
+   const loginForm = document.getElementById("loginForm");
 
-    loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+loginForm.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value;
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
 
-      const savedEmail = localStorage.getItem("userEmail");
-      const savedPassword = localStorage.getItem("userPassword");
+  const savedEmail = localStorage.getItem("userEmail");
+  const savedPassword = localStorage.getItem("userPassword");
 
-      if (email === savedEmail && password === savedPassword) {
-        alert("Login successful!");
-        window.location.href = "Dining.html"; // redirect after login
-      } else {
-        alert("Invalid email or password. Please try again.");
-      }
-    });
+  if (email === savedEmail && password === savedPassword) {
+    alert("Login successful!");
+    // Redirect to the correct page
+    window.location.href = "https://shradhadsy14.github.io/BucketIt/NavPage.html"; // Update to the correct page
+  } else {
+    alert("Invalid email or password. Please try again.");
+  }
+});
+
   </script>
 </body>
 
