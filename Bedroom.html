@@ -56,6 +56,12 @@
             transform: scale(1.1);
         }
 
+        .cart {
+            color: #DAD7CD;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
         /* Header Section */
         .category-header {
             background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
@@ -135,7 +141,7 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap:  2rem;
             margin-bottom: 1rem;
         }
 
@@ -150,7 +156,8 @@
             color: #DAD7CD;
             transform: translateY(-3px);
         }
-	/* Modal Styles */
+
+        /* Modal Styles */
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
@@ -186,6 +193,7 @@
             text-decoration: none;
             cursor: pointer;
         }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -242,11 +250,11 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#rent">Rent</a></li>
-                <li><a href="#buy">Buy</a></li>
-                <li><a href="#offers">Offers</a></li>
-                <li><a href="https://shradhadsy14.github.io/BucketIt/Login.html">LogIn</a></li>
+                <li><a href="">https://shradhadsy14.github.io/BucketIt/NavPage.html>HOME</a></li>
             </ul>
+            <div class="cart" onclick="openCartModal()">
+                <span id="cart-count">0</span> items in cart
+            </div>
         </nav>
     </header>
 
@@ -261,31 +269,30 @@
                     <img src="bedroom-springmattress.jpg" alt="Mattress">
                     <h3>Spring Mattress</h3>
                     <p>₹1,999/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Spring Mattress">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="bedroom-woodencot.jpg" alt="Cot">
                     <h3>Wooden Cot</h3>
                     <p>₹1,299/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Wooden Cot">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="bedroom-nightstand.jpeg" alt="Nightstand">
-                    <h3>Nightstand</h3>
-                    <p>₹799/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <h3>Nightstand</ <p>₹799/mo</p>
+                    <button class="add-to-cart" data-item="Nightstand">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="bedroom-dresser.webp" alt="Dresser">
                     <h3>Dresser</h3>
                     <p>₹1,499/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Dresser">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="bedroom-tablelamp.webp" alt="Lamp">
                     <h3>Table Lamp</h3>
                     <p>₹599/mo</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-item="Table Lamp">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -295,57 +302,39 @@
                 <img src="bedroom-armoire.jpg" alt="Armoire">
                 <h3>Armoire</h3>
                 <p>₹1,999/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Armoire">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="bedroom-pillows.webp" alt="Pillows">
                 <h3>Pillows</h3>
                 <p>₹1,299/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Pillows">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="bedroom-accentchair.webp" alt="Accent Chair">
                 <h3>Accent Chair</h3>
                 <p>₹799/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Accent Chair">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="bedroom-rug.jpg" alt="Rug">
                 <h3>Rug</h3>
                 <p>₹1,499/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <button class="add-to-cart" data-item="Rug">Add to Cart</button>
             </div>
         </section>
 
-        <section class="category-items">
-            <div class="category-item">
-                <img src="bedroom-accentchair.webp" alt="Accent Chair">
-                <h3>Accent Chair</h3>
-                <p>₹799/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
+        <!-- Cart Modal -->
+        <div id="cartModal" class="cart-modal">
+            <div class="cart-modal-content">
+                <span class="close" onclick="closeCartModal()">&times;</span>
+                <h2>Your Cart</h2>
+                <div id="cart-items"></div>
+                <button onclick="closeCartModal()">Close</button>
             </div>
-            <div class="category-item">
-                <img src="bedroom-dresser.webp" alt="Dresser">
-                <h3>Dresser</h3>
-                <p>₹1,499/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="category-item">
-                <img src="bedroom-nightstand.jpeg" alt="Nightstand">
-                <h3>Nightstand</h3>
-                <p>₹799/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="category-item">
-                <img src="bedroom-woodencot.jpg" alt="Cot">
-                <h3>Wooden Cot</h3>
-                <p>₹1,299/mo</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </section>
+        </div>
 
         <!-- Modals for all products -->
-        <!-- Modal for Spring Mattress -->
         <div id="springMattressModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('springMattressModal')">&times;</span>
@@ -363,7 +352,6 @@
             </div>
         </div>
 
-        <!-- Modal for Wooden Cot -->
         <div id="woodenCotModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('woodenCotModal')">&times;</span>
@@ -381,10 +369,9 @@
             </div>
         </div>
 
-        <!-- Modal for Nightstand -->
         <div id="nightstandModal" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal('nightstandModal')">&times;</span>
+                <span class ="close" onclick="closeModal('nightstandModal')">&times;</span>
                 <h2>Nightstand</h2>
                 <img src="bedroom-nightstand.jpeg" alt="Nightstand" style="width: 100%; height: auto; border-radius: 8px;">
                 <p>Price: ₹799/mo</p>
@@ -399,7 +386,6 @@
             </div>
         </div>
 
-        <!-- Modal for Dresser -->
         <div id="dresserModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('dresserModal')">&times;</span>
@@ -417,7 +403,6 @@
             </div>
         </div>
 
-        <!-- Modal for Table Lamp -->
         <div id="tableLampModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('tableLampModal')">&times;</span>
@@ -435,8 +420,7 @@
             </div>
         </div>
 
-        <!-- Modal for Armoire -->
-        <div id="armoire Modal" class="modal">
+        <div id="armoireModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('armoireModal')">&times;</span>
                 <h2>Armoire</h2>
@@ -453,7 +437,6 @@
             </div>
         </div>
 
-        <!-- Modal for Pillows -->
         <div id="pillowsModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('pillowsModal')">&times;</span>
@@ -471,10 +454,9 @@
             </div>
         </div>
 
-        <!-- Modal for Accent Chair -->
         <div id="accentChairModal" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal('accentChairModal')">&times;</span>
+                <span class="close" onclick="closeModal ('accentChairModal')">&times;</span>
                 <h2>Accent Chair</h2>
                 <img src="bedroom-accentchair.webp" alt="Accent Chair" style="width: 100%; height: auto; border-radius: 8px;">
                 <p>Price: ₹799/mo</p>
@@ -489,7 +471,6 @@
             </div>
         </div>
 
-        <!-- Modal for Rug -->
         <div id="rugModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('rugModal')">&times;</span>
@@ -519,6 +500,41 @@
     </footer>
 
     <script>
+        let cartCount = 0;
+        let cartItems = [];
+
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+
+        function openCartModal() {
+            document.getElementById('cartModal').style.display = "block";
+            displayCartItems();
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').style.display = "none";
+        }
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            cartItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerText = item;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                cartCount++;
+                cartItems.push(this.getAttribute('data-item'));
+                updateCartCount();
+            });
+        });
+
         // Function to open the modal
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
@@ -540,11 +556,7 @@
                 'armoireModal', 
                 'pillowsModal', 
                 'accentChairModal', 
-                'rugModal',
-		'accentChairModal',
-		'dresserModal',
-		'nightstandModal',
-		'woodenCotModal'
+                'rugModal'
             ];
             item.onclick = function() {
                 openModal(modals[index]);
@@ -562,11 +574,7 @@
                 'armoireModal', 
                 'pillowsModal', 
                 'accentChairModal', 
-                'rugModal',
-		'accentChairModal',
-		'dresserModal',
-		'nightstandModal',
-		'woodenCotModal'
+                'rugModal'
             ];
             modals.forEach(modalId => {
                 if (event.target == document.getElementById(modalId)) {
@@ -574,33 +582,6 @@
                 }
             });
         }
-    // Load cart count on page load
-    function loadCartCount() {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        document.getElementById("cart-counter").innerText = cart.length;
-    }
-
-    // Add item to cart and update count
-    function addToCart(item, price) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        cart.push({ item: item, price: price });
-        localStorage.setItem("cart", JSON.stringify(cart));
-        document.getElementById("cart-counter").innerText = cart.length;
-        alert(item + " added to cart!");
-    }
-
-    // Proceed to payment page
-    function proceedToPayment() {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        if (cart.length === 0) {
-            alert("Your cart is empty. Add items before proceeding to payment!");
-        } else {
-            window.location.href = "payment.html";
-        }
-    }
-
-    // Load cart count on page load
-    window.onload = loadCartCount;
     </script>
 </body>
 </html>
