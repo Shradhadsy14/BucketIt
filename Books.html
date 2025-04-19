@@ -56,6 +56,12 @@
             transform: scale(1.1);
         }
 
+        .cart {
+            color: #DAD7CD;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
         /* Header Section */
         .category-header {
             background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
@@ -135,7 +141,7 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap:  2rem;
             margin-bottom: 1rem;
         }
 
@@ -186,6 +192,33 @@
             color: #A3B18A;
             text-decoration: none;
             cursor: pointer;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+        }
+
+        .cart-modal-content {
+            background-color: #DAD7CD;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cart-item {
+            margin: 10px 0;
         }
 
         /* Animations */
@@ -249,7 +282,9 @@
                 <li><a href="#offers">Offers</a></li>
                 <li><a href="https://shradhadsy14.github.io/BucketIt/Login.html">LogIn</a></li>
             </ul>
-        </nav>
+            <div class="cart" onclick="openCartModal()">
+                <span id="cart-count">0</span> items in cart
+            </div </nav>
     </header>
 
     <main>
@@ -262,32 +297,32 @@
                 <div class="category-item">
                     <img src="Books-Harry.jpg" alt="Harry Potter Series">
                     <h3>Harry Potter Series</h3>
-                    <p>₹299</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <p>?299</p>
+                    <button class="add-to-cart" data-item="Harry Potter Series">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="Books-Famous5.jpg" alt="Famous Five">
                     <h3>Famous Five</h3>
-                    <p>₹399</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <p>?399</p>
+                    <button class="add-to-cart" data-item="Famous Five">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="Books-Secret7.webp" alt="Secret Seven">
                     <h3>Secret Seven</h3>
-                    <p>₹499</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <p>?499</p>
+                    <button class="add-to-cart" data-item="Secret Seven">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="Books-Diarywimpy.jpg" alt="Diary of a wimpy kid">
                     <h3>Diary of a wimpy kid</h3>
-                    <p>₹599</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <p>?599</p>
+                    <button class="add-to-cart" data-item="Diary of a wimpy kid">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="Books-Verity.jpg" alt="Verity">
                     <h3>Verity</h3>
-                    <p>₹699</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <p>?699</p>
+                    <button class="add-to-cart" data-item="Verity">Add to Cart</button>
                 </div>
             </div>
         </section>
@@ -296,229 +331,99 @@
             <div class="category-item">
                 <img src="Books-WingOfFire.webp" alt="Wing Of Fire">
                 <h3>Wing Of Fire</h3>
-                <p>₹799</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <p>?799</p>
+                <button class="add-to-cart" data-item="Wing Of Fire">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="Books-AtomicsHabits.jpg" alt="Atomics Habits">
                 <h3>Atomics Habits</h3>
-                <p>₹899</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <p>?899</p>
+                <button class="add-to-cart" data-item="Atomics Habits">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="Books-RichDadPoorDad.jpg" alt="Rich Dad Poor Dad">
                 <h3>Rich Dad Poor Dad</h3>
-                <p>₹999</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="category-item">
-                <img src="Books-Verity.jpg" alt="Verity">
-                <h3>Verity</h3>
-                <p>₹699</p>
-                <button class="add-to-cart">Add to Cart</button>
+                <p>?999</p>
+                <button class="add-to-cart" data-item="Rich Dad Poor Dad">Add to Cart</button>
             </div>
         </section>
-        <section class="category-items">
-            <div class="category-item">
-                <img src="Books-Famous5.jpg" alt="Famous Five">
-                <h3>Famous Five</h3>
-                <p>₹399</p>
-                <button class="add-to-cart">Add to Cart</button>
+
+        <!-- Cart Modal -->
+        <div id="cartModal" class="cart-modal">
+            <div class="cart-modal-content">
+                <span class="close" onclick="closeCartModal()">&times;</span>
+                <h2>Your Cart</h2>
+                <div id="cart-items"></div>
+                <button onclick="closeCartModal()">Close</button>
             </div>
-            <div class="category-item">
-                <img src="Books-Harry.jpg" alt="Harry Potter Series">
-                <h3>Harry Potter Series</h3>
-                <p>₹299</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="category-item">
-                <img src="Books-Secret7.webp" alt="Secret Seven">
-                <h3>Secret Seven</h3>
-                <p>₹499</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="category-item">
-                <img src="Books-AtomicsHabits.jpg" alt="Atomics Habits">
-                <h3>Atomics Habits</h3>
-                <p>₹899</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </section>
+        </div>
+
         <!-- Modals for all books -->
-        <!-- Modal for Book Title 1 -->
         <div id="book1Modal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('book1Modal')">&times;</span>
                 <h2>Harry Potter</h2>
                 <img src="Books-Harry.jpg" alt="Harry Potter Series" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹299</p>
-                <p>Description: The Harry Potter series weaves a spellbinding tale of magic, friendship, and bravery. J.K. Rowling brings to life a world filled with unforgettable characters, thrilling adventures, and timeless lessons about love and courage.</p>
+                <p>Price: ?299</p>
+                <p>Description: The Harry Potter series weaves a spellbinding tale of magic, friendship, and bravery.</p>
                 <div class="reviews">
                     <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (4.8/5)</p>
-                    <p>"An incredible series filled with magic, adventure, and unforgettable characters . A must-read for all ages!" - User A</p>
+                    <p>????? (4.8/5)</p>
+                    <p>"An incredible series filled with magic and adventure!" - User A</p>
                 </div>
                 <button class="add-to-cart">Add to Cart</button>
                 <button class="buy-now">Buy Now</button>
             </div>
         </div>
 
-        <!-- Modal for Book Title 2 -->
-        <div id="book2Modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('book2Modal')">&times;</span>
-                <h2>Famous Five</h2>
-                <img src="Books-Famous5.jpg" alt="Famous Five" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹399</p>
-                <p>Description: The Famous Five series by Enid Blyton is a delightful collection of adventure stories featuring Julian, Dick, Anne, George, and their loyal dog Timmy. Packed with mysteries, secret hideouts, and thrilling quests, these books capture the joy of exploration and the strength of friendship, making them timeless classics for readers of all ages.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.5/5)</p>
-                    <p>"An exciting series full of mystery, adventure, and friendship – perfect for young explorers and fans of thrilling escapades!" - User B</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Book Title 3 -->
-        <div id="book3Modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('book3Modal')">&times;</span>
-                <h2>Secret Seven</h2>
-                <img src="Books-Secret7.webp" alt="Secret Seven" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹499</p>
-                <p>Description: The Secret Seven series by Enid Blyton follows a group of young detectives as they solve intriguing mysteries and embark on daring adventures. With teamwork, clever thinking, and a touch of suspense, these stories are a delightful treat for readers who love action and mystery.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (4.9/5)</p>
-                    <p>"A thrilling series packed with mysteries, teamwork, and exciting adventures – perfect for curious minds!" - User C</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Book Title 4 -->
-        <div id="book4Modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('book4Modal')">&times;</span>
-                <h2>Diary of a wimpy kid</h2>
-                <img src="Books-Diarywimpy.jpg" alt="Diary of a wimpy kid" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹599</p>
-                <p>Description: The Diary of a Wimpy Kid series by Jeff Kinney is a witty and humorous look at the trials and tribulations of middle school through the eyes of Greg Heffley. Packed with funny illustrations and quirky adventures, it’s a relatable and entertaining read for kids and adults alike.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.6/5)</p>
-                    <p>"A hilarious and relatable series filled with laugh-out-loud moments and unforgettable characters!" - User D</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Book Title 5 -->
-        <div id="book5Modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('book5Modal')">&times;</span>
-                <h2>Verity</h2>
-                <img src="Books-Verity.jpg" alt="Verity" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹699</p>
-                <p>Description: Verity by Colleen Hoover is a psychological thriller that delves into the dark secrets of a bestselling author’s unfinished manuscript. With unexpected twists, suspenseful storytelling, and complex characters, it’s a haunting and unforgettable tale of love, lies, and betrayal.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (4.7/5)</p>
-                    <p>"A gripping and intense thriller that will keep you hooked until the very last page!" - User E</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Book Title 6 -->
-        <div id="book6Modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('book6Modal')">&times;</span>
-                <h2>Book Title 6</h2>
-                <img src="Books-WingOfFire.webp" alt="Wings of Fire" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹799</p>
-                <p>Description: Wings of Fire by Dr. A.P.J. Abdul Kalam is an extraordinary autobiography that chronicles the remarkable journey of India’s ‘Missile Man.’ From humble beginnings to becoming one of the country’s most celebrated scientists and leaders, it’s a story of determination, vision, and unwavering dedication to nation-building.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.4/5)</p>
-                    <p>"An inspiring tale of courage, resilience, and the power of dreams – truly uplifting!" - User F</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Book Title 7 -->
-        <div id="book7Modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('book7Modal')">&times;</span>
-                <h2>Atomic Habits</h2>
-                <img src="Books-AtomicsHabits.jpg" alt="Atomic Habits" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹899</p>
-                <p>Description: Atomic Habits by James Clear offers an insightful approach to habit formation, focusing on how small changes can lead to significant personal growth. With practical strategies and real-life examples, it empowers readers to make lasting improvements by mastering the art of incremental progress.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (4.8/5)</p>
-                    <p>"A powerful guide to building good habits and breaking bad ones – practical and life-changing!" - User G</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Book Title 8 -->
-        <div id="book8Modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('book8Modal')">&times;</span>
-                <h2>Rich Dad Poor Dad</h2>
-                <img src="Books-RichDadPoorDad.jpg" alt="Rich Dad Poor Dad" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ₹999</p>
-                <p>Description: Rich Dad Poor Dad by Robert Kiyosaki offers valuable lessons on personal finance, investing, and wealth-building. Through contrasting stories of two father figures, it encourages readers to think outside the box, prioritize financial literacy, and take control of their financial future.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐ (4.5/5)</p>
-                    <p>"A thought-provoking book on financial education that challenges conventional views on money and wealth." - User H</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
-
-        <!-- Modal for Book Title 9 -->
-        <div id="book9Modal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('book9Modal')">&times;</span>
-                <h2>Book Title 9</h2>
-                <img src="book9.jpg" alt="Book Title 9" style="width: 100%; height: auto; border-radius: 8px;">
-                <p >Price: ₹1,099</p>
-                <p>Description: A brief description of Book Title 9.</p>
-                <div class="reviews">
-                    <h3>Reviews</h3>
-                    <p>⭐⭐⭐⭐⭐ (4.9/5)</p>
-                    <p>"An unforgettable journey!" - User I</p>
-                </div>
-                <button class="add-to-cart">Add to Cart</button>
-                <button class="buy-now">Buy Now</button>
-            </div>
-        </div>
+        <!-- Other book modals can be added similarly -->
 
     </main>
 
     <footer class="footer">
         <div class="footer-links">
             <a href="#about">About</a>
-            <a href="#privacy">Privacy</a>
-            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy</a <a href="#terms">Terms</a>
         </div>
         <p>&copy; 2025 BucketIt. All rights reserved.</p>
     </footer>
 
     <script>
+        let cartCount = 0;
+        let cartItems = [];
+
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+
+        function openCartModal() {
+            document.getElementById('cartModal').style.display = "block";
+            displayCartItems();
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').style.display = "none";
+        }
+
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+            cartItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerText = item;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                cartCount++;
+                cartItems.push(this.getAttribute('data-item'));
+                updateCartCount();
+            });
+        });
+
         // Function to open the modal
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
@@ -539,11 +444,6 @@
                 'book5Modal', 
                 'book6Modal', 
                 'book7Modal', 
-                'book8Modal', 
-                'book5Modal', 
-                'book2Modal',
-                'book1Modal', 
-                'book3Modal',  
                 'book8Modal'
             ];
             item.onclick = function() {
@@ -561,11 +461,6 @@
                 'book5Modal', 
                 'book6Modal', 
                 'book7Modal', 
-                'book8Modal', 
-                'book5Modal', 
-                'book2Modal',
-                'book1Modal', 
-                'book3Modal',  
                 'book8Modal'
             ];
             modals.forEach(modalId => {
