@@ -65,7 +65,7 @@
         /* Header Section */
         .category-header {
             background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
-                        url('images/books-banner.jpg') center/cover no-repeat;
+                        url('electroback.avif') center/cover no-repeat;
             height: 70vh;
             display: flex;
             align-items: center;
@@ -141,9 +141,8 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap:  2rem;
-            margin-bottom: 1rem;
-        }
+            gap: 2rem;
+            margin-bottom: 1rem }
 
         .footer-links a {
             color: #A3B18A;
@@ -277,91 +276,121 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="https://shradhadsy14.github.io/BucketIt/NavPage.html#rent">HOME</a></li>
+                <li><a href="#">HOME</a></li>
             </ul>
             <div class="cart" onclick="openCartModal()">
                 <span id="cart-count">0</span> items in cart
-            </div </nav>
+            </div>
+        </nav>
     </header>
 
     <main>
-        <section class="category-header">
-            <h1>Books</h1>
-        </section>
-
         <section class="category-items">
             <div class="category-items-inner">
                 <div class="category-item">
                     <img src="Books-Harry.jpg" alt="Harry Potter Series">
-                    <h3>Harry Potter Series</h3>
-                    <p>?299</p>
+                    <h3 onclick="openModal('book1Modal')">Harry Potter Series</h3>
+                    <p>₹299</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
+
                     <button class="add-to-cart" data-item="Harry Potter Series">Add to Cart</button>
                 </div>
                 <div class="category-item">
-                    <img src="Books-Famous5.jpg" alt="Famous Five">
-                    <h3>Famous Five</h3>
-                    <p>?399</p>
-                    <button class="add-to-cart" data-item="Famous Five">Add to Cart</button>
-                </div>
-                <div class="category-item">
-                    <img src="Books-Secret7.webp" alt="Secret Seven">
-                    <h3>Secret Seven</h3>
-                    <p>?499</p>
-                    <button class="add-to-cart" data-item="Secret Seven">Add to Cart</button>
-                </div>
-                <div class="category-item">
-                    <img src="Books-Diarywimpy.jpg" alt="Diary of a wimpy kid">
-                    <h3>Diary of a wimpy kid</h3>
-                    <p>?599</p>
-                    <button class="add-to-cart" data-item="Diary of a wimpy kid">Add to Cart</button>
-                </div>
-                <div class="category-item">
-                    <img src="Books-Verity.jpg" alt="Verity">
-                    <h3>Verity</h3>
-                    <p>?699</p>
-                    <button class="add-to-cart" data-item="Verity">Add to Cart</button>
-                </div>
-            </div>
-        </section>
+            <img src="Books-Famous5.jpg" alt="Famous Five">
+            <h3 onclick="openModal('book2Modal')">Famous Five</h3>
+            <p>₹399</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
 
-        <section class="category-items">
-            <div class="category-item">
-                <img src="Books-WingOfFire.webp" alt="Wing Of Fire">
-                <h3>Wing Of Fire</h3>
-                <p>?799</p>
-                <button class="add-to-cart" data-item="Wing Of Fire">Add to Cart</button>
-            </div>
-            <div class="category-item">
-                <img src="Books-AtomicsHabits.jpg" alt="Atomics Habits">
-                <h3>Atomics Habits</h3>
-                <p>?899</p>
-                <button class="add-to-cart" data-item="Atomics Habits">Add to Cart</button>
-            </div>
-            <div class="category-item">
-                <img src="Books-RichDadPoorDad.jpg" alt="Rich Dad Poor Dad">
-                <h3>Rich Dad Poor Dad</h3>
-                <p>?999</p>
-                <button class="add-to-cart" data-item="Rich Dad Poor Dad">Add to Cart</button>
-            </div>
-        </section>
+            <button class="add-to-cart" data-item="Famous Five">Add to Cart</button>
+        </div>
+        <div class="category-item">
+            <img src="Books-Secret7.webp" alt="Secret Seven">
+            <h3 onclick="openModal('book3Modal')">Secret Seven</h3>
+            <p>₹499</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
 
-        <!-- Cart Modal -->
-        <div id="cartModal" class="cart-modal">
-            <div class="cart-modal-content">
-                <span class="close" onclick="closeCartModal()">&times;</span>
-                <h2>Your Cart</h2>
-                <div id="cart-items"></div>
-                <button onclick="closeCartModal()">Close</button>
-            </div>
+            <button class="add-to-cart" data-item="Secret Seven">Add to Cart</button>
+        </div>
+        <div class="category-item">
+            <img src="Books-Diarywimpy.jpg" alt="Diary of a wimpy kid">
+            <h3 onclick="openModal('book4Modal')">Diary of a wimpy kid</h3>
+            <p>₹599</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
+
+            <button class="add-to-cart" data-item="Diary of a wimpy kid">Add to Cart</button>
+        </div>
+        <div class="category-item">
+            <img src="Books-Verity.jpg" alt="Verity">
+            <h3 onclick="openModal('book5Modal')">Verity</h3>
+            <p>₹699</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
+
+            <button class="add-to-cart" data-item="Verity">Add to Cart</button>
         </div>
 
-        <!-- Modals for all books -->
+            </div>
+        </section>
+
+        
+<section class="category-items">
+    <div class="category-item">
+        <img src="Books-WingOfFire.webp" alt="Wing Of Fire">
+        <h3 onclick="openModal('book6Modal')">Wing Of Fire</h3>
+        <p>₹799</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
+
+        <button class="add-to-cart" data-item="Wing Of Fire">Add to Cart</button>
+    </div>
+    <div class="category-item">
+        <img src="Books-AtomicsHabits.jpg" alt="Atomics Habits">
+        <h3 onclick="openModal('book7Modal')">Atomics Habits</h3>
+        <p>₹899</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
+
+        <button class="add-to-cart" data-item="Atomics Habits">Add to Cart</button>
+    </div>
+    <div class="category-item">
+        <img src="Books-RichDadPoorDad.jpg" alt="Rich Dad Poor Dad">
+        <h3 onclick="openModal('book8Modal')">Rich Dad Poor Dad</h3>
+        <p>₹999</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
+
+        <button class="add-to-cart" data-item="Rich Dad Poor Dad">Add to Cart</button>
+    </div>
+</section>
+
+        <!-- Add other book modals similarly -->
+<!-- Modals for all books -->
         <div id="book1Modal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('book1Modal')">&times;</span>
                 <h2>Harry Potter</h2>
                 <img src="Books-Harry.jpg" alt="Harry Potter Series" style="width: 100%; height: auto; border-radius: 8px;">
-                <p>Price: ?299</p>
+                <p>Price: ₹299</p>
                 <p>Description: The Harry Potter series weaves a spellbinding tale of magic, friendship, and bravery.</p>
                 <div class="reviews">
                     <h3>Reviews</h3>
@@ -372,21 +401,138 @@
                 <button class="buy-now">Buy Now</button>
             </div>
         </div>
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCartModal()">&times;</span>
+                <h2>Your Cart</h2>
+                <div id="cart-items"></div>
+                <button onclick="closeCartModal()">Close</button>
+            </div>
+        </div>
+<div id="book2Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('book2Modal')">&times;</span>
+        <h2>F amous Five</h2>
+        <img src="Books-Famous5.jpg" alt="Famous Five" style="width: 100%; height: auto; border-radius: 8px;">
+        <p>Price: ₹399</p>
+        <p>Description: A thrilling adventure series featuring five young detectives.</p>
+        <div class="reviews">
+            <h3>Reviews</h3>
+            <p>????? (4.7/5)</p>
+            <p>"Exciting and full of mystery!" - User B</p>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+    </div>
+</div>
 
-        <!-- Other book modals can be added similarly -->
+<div id="book3Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('book3Modal')">&times;</span>
+        <h2>Secret Seven</h2>
+        <img src="Books-Secret7.webp" alt="Secret Seven" style="width: 100%; height: auto; border-radius: 8px;">
+        <p>Price: ₹499</p>
+        <p>Description: Join the Secret Seven in their thrilling adventures.</p>
+        <div class="reviews">
+            <h3>Reviews</h3>
+            <p>????? (4.6/5)</p>
+            <p>"A fantastic read for young detectives!" - User C</p>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+    </div>
+</div>
+
+<div id="book4Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('book4Modal')">&times;</span>
+        <h2>Diary of a Wimpy Kid</h2>
+        <img src="Books-Diarywimpy.jpg" alt="Diary of a wimpy kid" style="width: 100%; height: auto; border-radius: 8px;">
+        <p>Price: ₹599</p>
+        <p>Description: A hilarious diary of a middle school kid's life.</p>
+        <div class="reviews">
+            <h3>Reviews</h3>
+            <p>????? (4.5/5)</p>
+            <p>"Funny and relatable!" - User D</p>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+    </div>
+</div>
+
+<div id="book5Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('book5Modal')">&times;</span>
+        <h2>Verity</h2>
+        <img src="Books-Verity.jpg" alt="Verity" style="width: 100%; height: auto; border-radius: 8px;">
+        <p>Price: ₹699</p>
+        <p>Description: A gripping psychological thriller that will keep you on the edge of your seat.</p>
+        <div class="reviews">
+            <h3>Reviews</h3>
+            <p>????? (4.9/5)</p>
+            <p>"A must-read for thriller lovers!" - User E</p>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+    </div>
+</div>
+
+<div id="book6Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('book6Modal')">&times;</span>
+        <h2>Wing Of Fire</h2>
+        <img src="Books-WingOfFire.webp" alt="Wing Of Fire" style="width: 100%; height: auto; border-radius: 8px;">
+        <p>Price: ₹799</p>
+        <p>Description: An inspiring autobiography of Dr. A.P.J. Abdul Kalam.</p>
+        <div class="reviews">
+            <h3>Reviews</h3>
+            <p>????? (4.8/5)</p>
+            <p>"Truly motivational!" - User F</p>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+    </div>
+</div>
+
+<div id="book7Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('book7Modal')">&times;</span>
+        <h2>Atomics Habits </h2>
+        <img src="Books-AtomicsHabits.jpg" alt="Atomics Habits" style="width: 100%; height: auto; border-radius: 8px;">
+        <p>Price: ₹899</p>
+        <p>Description: A guide to building good habits and breaking bad ones.</p>
+        <div class="reviews">
+            <h3>Reviews</h3>
+            <p>????? (4.7/5)</p>
+            <p>"Transformative and practical!" - User G</p>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+    </div>
+</div>
+
+<div id="book8Modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('book8Modal')">&times;</span>
+        <h2>Rich Dad Poor Dad</h2>
+        <img src="Books-RichDadPoorDad.jpg" alt="Rich Dad Poor Dad" style="width: 100%; height: auto; border-radius: 8px;">
+        <p>Price: ₹999</p>
+        <p>Description: A book that challenges the way you think about money and investing.</p>
+        <div class="reviews">
+            <h3>Reviews</h3>
+            <p>????? (4.6/5)</p>
+            <p>"Eye-opening and insightful!" - User H</p>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+    </div>
+</div>
+
 
     </main>
 
-    <footer class="footer">
-        <div class="footer-links">
-            <a href="#about">About</a>
-            <a href="#privacy">Privacy</a <a href="#terms">Terms</a>
-        </div>
-        <p>&copy; 2025 BucketIt. All rights reserved.</p>
-    </footer>
-
     <script>
-        let cartCount = 0;
+         let cartCount = 0;
         let cartItems = [];
 
         function updateCartCount() {
@@ -402,24 +548,27 @@
             document.getElementById('cartModal').style.display = "none";
         }
 
-        function displayCartItems() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = '';
-            cartItems.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'cart-item';
-                itemElement.innerText = item;
-                cartItemsContainer.appendChild(itemElement);
-            });
-        }
+      function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = '';
+    cartItems.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'cart-item';
+        itemElement.innerText = item;
+        cartItemsContainer.appendChild(itemElement);
+    });
+}
 
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                cartCount++;
-                cartItems.push(this.getAttribute('data-item'));
-                updateCartCount();
-            });
-        });
+          document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        cartCount++;
+        const itemName = this.getAttribute('data-item');
+        const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; // Get the selected rental option
+        cartItems.push(`${itemName} - ${rentalOption}`); // Add item name and rental option to cart
+        updateCartCount();
+    });
+});
+
 
         // Function to open the modal
         function openModal(modalId) {
