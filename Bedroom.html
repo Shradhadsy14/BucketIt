@@ -295,31 +295,51 @@
                 <div class="category-item">
                     <img src="bedroom-springmattress.jpg" alt="Mattress">
                     <h3>Spring Mattress</h3>
-                    <p>₹1,999/mo</p>
+                    <p>₹1,999/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                     <button class="add-to-cart" data-item="Spring Mattress">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="bedroom-woodencot.jpg" alt="Cot">
                     <h3>Wooden Cot</h3>
-                    <p>₹1,299/mo</p>
+                    <p>₹1,299/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                     <button class="add-to-cart" data-item="Wooden Cot">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="bedroom-nightstand.jpeg" alt="Nightstand">
                     <h3>Nightstand</h3>
-                     <p>₹799/mo</p>
+                     <p>₹799/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                     <button class="add-to-cart" data-item="Nightstand">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="bedroom-dresser.webp" alt="Dresser">
                     <h3>Dresser</h3>
-                    <p>₹1,499/mo</p>
+                    <p>₹1,499/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                     <button class="add-to-cart" data-item="Dresser">Add to Cart</button>
                 </div>
                 <div class="category-item">
                     <img src="bedroom-tablelamp.webp" alt="Lamp">
                     <h3>Table Lamp</h3>
-                    <p>₹599/mo</p>
+                    <p>₹599/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                     <button class="add-to-cart" data-item="Table Lamp">Add to Cart</button>
                 </div>
             </div>
@@ -329,25 +349,41 @@
             <div class="category-item">
                 <img src="bedroom-armoire.jpg" alt="Armoire">
                 <h3>Armoire</h3>
-                <p>₹1,999/mo</p>
+                <p>₹1,999/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                 <button class="add-to-cart" data-item="Armoire">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="bedroom-pillows.webp" alt="Pillows">
                 <h3>Pillows</h3>
-                <p>₹1,299/mo</p>
+                <p>₹1,299/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                 <button class="add-to-cart" data-item="Pillows">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="bedroom-accentchair.webp" alt="Accent Chair">
                 <h3>Accent Chair</h3>
-                <p>₹799/mo</p>
+                <p>₹799/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                 <button class="add-to-cart" data-item="Accent Chair">Add to Cart</button>
             </div>
             <div class="category-item">
                 <img src="bedroom-rug.jpg" alt="Rug">
                 <h3>Rug</h3>
-                <p>₹1,499/mo</p>
+                <p>₹1,499/mo</p><div class="rental-options">
+                        <label><input type="radio" name="dining-table-rental" value="daily"> Daily</label>
+                        <label><input type="radio" name="dining-table-rental" value="weekly"> Weekly</label>
+                        <label><input type="radio" name="dining-table-rental" value="monthly" checked> Monthly</label>
+                    </div>
                 <button class="add-to-cart" data-item="Rug">Add to Cart</button>
             </div>
         </section>
@@ -544,24 +580,26 @@
             document.getElementById('cartModal').style.display = "none";
         }
 
-        function displayCartItems() {
-            const cartItemsContainer = document.getElementById('cart-items');
-            cartItemsContainer.innerHTML = '';
-            cartItems.forEach(item => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'cart-item';
-                itemElement.innerText = item;
-                cartItemsContainer.appendChild(itemElement);
-            });
-        }
+           function displayCartItems() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = '';
+    cartItems.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'cart-item';
+        itemElement.innerText = item;
+        cartItemsContainer.appendChild(itemElement);
+    });
+}
 
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                cartCount++;
-                cartItems.push(this.getAttribute('data-item'));
-                updateCartCount();
-            });
-        });
+          document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function() {
+        cartCount++;
+        const itemName = this.getAttribute('data-item');
+        const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; // Get the selected rental option
+        cartItems.push(`${itemName} - ${rentalOption}`); // Add item name and rental option to cart
+        updateCartCount();
+    });
+});
 
         // Function to open the modal
         function openModal(modalId) {
