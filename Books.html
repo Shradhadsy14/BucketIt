@@ -64,23 +64,23 @@
 
         /* Header Section */
         .category-header {
-            background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
-                        url('electroback.avif') center/cover no-repeat;
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #DAD7CD;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out forwards;
-        }
+    background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
+                url('your-image-url.jpg') center/cover no-repeat; /* Replace with your image URL */
+    height: 70vh; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #DAD7CD;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+}
 
-        .category-header h1 {
-            font-size: 4rem;
-            margin: 0;
-            letter-spacing: 1.5px;
-        }
+.category-header h1 {
+    font-size: 4rem; /* Adjust font size as needed */
+    margin: 0;
+    letter-spacing: 1.5px;
+}
 
         /* Items Section */
         .category-items {
@@ -131,30 +131,31 @@
 
         /* Footer */
         .footer {
-            background: #344E41;
-            color: #DAD7CD;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
-        }
+    background: #344E41;
+    color: #DAD7CD;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem }
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
 
-        .footer-links a {
-            color: #A3B18A;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
+.footer-links a {
+    color: #A3B18A;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
 
-        .footer-links a:hover {
-            color: #DAD7CD;
-            transform: translateY(-3px);
-        }
+.footer-links a:hover {
+    color: #DAD7CD;
+    transform: translateY(-3px);
+}
 
         /* Modal Styles */
         .modal {
@@ -294,9 +295,13 @@
                 <span id="cart-count">0</span> items in cart
             </div>
         </nav>
+
     </header>
 
     <main>
+<section class="category-header">
+    <h1>Books Collection</h1>
+</section>
 <br>
 	<div class="search-container">
     <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
@@ -544,7 +549,14 @@
     </div>
 </div>
 
-
+<footer class="footer">
+    <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+    </div>
+    <p>&copy; 2025 BucketIt. All rights reserved.</p>
+</footer>
     </main>
 
     <script>
