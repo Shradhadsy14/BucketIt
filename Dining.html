@@ -278,6 +278,18 @@
         .add-to-cart:hover {
             background-color: #4A6B4D;
         }
+	.search-container {
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1rem;
+    font-size: 1rem;
+}
     </style>
 </head>
 <body>
@@ -299,7 +311,9 @@
         <section class="category-header">
             <h1>Dining Room Furniture</h1>
         </section>
-
+	<div class="search-container">
+    <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+</div>
         <section class="category-items">
  <div class="category-items-inner">
                 <div class="category-item">
@@ -689,23 +703,21 @@
     button.addEventListener('click', function() {
         cartCount++;
         const itemName = this.getAttribute('data-item');
-        const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; // Get the selected rental option
-        cartItems.push(`${itemName} - ${rentalOption}`); // Add item name and rental option to cart
+        const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; 
+        cartItems.push(`${itemName} - ${rentalOption}`); 
         updateCartCount();
     });
 });
-
-        // Function to open the modal
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
         }
 
-        // Function to close the modal
+
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
         }
 
-        // Add event listeners to each product title to open the corresponding modal
+
         document.querySelectorAll('.category-item h3').forEach((item, index) => {
             const modals = [
                 'diningTableModal', 
@@ -727,7 +739,7 @@
             }
         });
 
-        // When the user clicks anywhere outside of the modal, close it
+
         window.onclick = function(event) {
             const modals = [
                 'diningTableModal', 
@@ -750,6 +762,19 @@
                 }
             });
         }
+	function searchItems() {
+    const input = document.getElementById('search-input').value.toLowerCase();
+    const items = document.querySelectorAll('.category-item');
+
+    items.forEach(item => {
+        const title = item.querySelector('h3').innerText.toLowerCase();
+        if (title.includes(input)) {
+            item.style.display = 'block'; 
+        } else {
+            item.style.display = 'none'; 
+        }
+    });
+}
     </script>
 </body>
 </html>
