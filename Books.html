@@ -267,6 +267,18 @@
         .add-to-cart:hover {
             background-color: #4A6B4D;
         }
+	.search-container {
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    margin-left: 1rem;
+    font-size: 1rem;
+}
     </style>
 </head>
 <body>
@@ -285,6 +297,10 @@
     </header>
 
     <main>
+<br>
+	<div class="search-container">
+    <input type="text" id="search-input" placeholder="Search..." onkeyup="searchItems()">
+</div>
         <section class="category-items">
             <div class="category-items-inner">
                 <div class="category-item">
@@ -615,6 +631,19 @@
                 }
             });
         }
+function searchItems() {
+    const input = document.getElementById('search-input').value.toLowerCase();
+    const items = document.querySelectorAll('.category-item');
+
+    items.forEach(item => {
+        const title = item.querySelector('h3').innerText.toLowerCase();
+        if (title.includes(input)) {
+            item.style.display = 'block'; // Show item
+        } else {
+            item.style.display = 'none'; // Hide item
+        }
+    });
+}
     </script>
 </body>
 </html>
