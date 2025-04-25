@@ -151,7 +151,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="header">
     <div class="logo">
       <a href="NavPage.html"><img src="Logo1.png" alt="BucketIt Logo"></a>
@@ -168,7 +167,6 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="main">
     <h2>Your Shopping Cart</h2>
 
@@ -187,7 +185,6 @@
         </div>
       </div>
 
-      <!-- Repeat cart-item blocks for each product -->
     </div>
 
     <div class="summary">
@@ -196,13 +193,11 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     © 2025 BucketIt. All rights reserved.
   </footer>
 
   <script>
-    // Simple JS to update cart count & subtotal based on the items in #cartItems
     document.addEventListener('DOMContentLoaded', () => {
       const cartCountEl = document.getElementById('cartCount');
       const subtotalEl = document.getElementById('subtotal');
@@ -223,7 +218,6 @@
         subtotalEl.textContent = totalPrice.toFixed(2);
       }
 
-      // handle + / - buttons
       itemsContainer.addEventListener('click', e => {
         if (!e.target.matches('button[data-action]')) return;
         const span = e.target.parentElement.querySelector('span');
