@@ -170,35 +170,35 @@
   <main class="main">
     <h2>Your Shopping Cart</h2>
 
-    <div class="cart-items" id="cartItems">
-      <div class="cart-item">
-        <img src="living-curtains.jpg" alt="Atomic Habits">
-        <div class="item-details">
-          <h3>Curtains</h3>
-          <p class="price">₹899</p>
-          <div class="quantity-control">
-            <button data-action="decrease">−</button>
-            <span>1</span>
-            <button data-action="increase">+</button>
-          </div>
-        </div>
+<div class="cart-items">
+  <div class="cart-item">
+    <img src="living-curtains.jpg" alt="Atomic Habits">
+    <div class="item-details">
+      <h3>Curtains</h3>
+      <p class="price">₹899</p>
+      <div class="quantity-control">
+        <button data-action="decrease">−</button>
+        <span>1</span>
+        <button data-action="increase">+</button>
       </div>
     </div>
-    <br>
-    <div class="cart-items" id="cartItems">
-      <div class="cart-item">
-        <img src="living-ottoman.jpg" alt="Atomic Habits">
-        <div class="item-details">
-          <h3>Comfort Ottoman</h3>
-          <p class="price">₹699</p>
-          <div class="quantity-control">
-            <button data-action="decrease">−</button>
-            <span>1</span>
-            <button data-action="increase">+</button>
-          </div>
-        </div>
+  </div>
+</div>
+<br>
+<div class="cart-items">
+  <div class="cart-item">
+    <img src="living-ottoman.jpg" alt="Atomic Habits">
+    <div class="item-details">
+      <h3>Comfort Ottoman</h3>
+      <p class="price">₹699</p>
+      <div class="quantity-control">
+        <button data-action="decrease">−</button>
+        <span>1</span>
+        <button data-action="increase">+</button>
       </div>
     </div>
+  </div>
+</div>
 
     <div class="summary">
       <p>Subtotal:₹<span id="subtotal">12.99</span></p>
@@ -214,30 +214,33 @@
   document.addEventListener('DOMContentLoaded', () => {
     const cartCountEl = document.getElementById('cartCount');
     const subtotalEl = document.getElementById('subtotal');
-    const itemsContainer = document.getElementById('cartItems');
+    const itemsContainer = document.querySelectorAll('.cart-items');
 
     function updateSummary() {
-      const items = itemsContainer.querySelectorAll('.cart-item');
       let totalQty = 0, totalPrice = 0;
 
-      items.forEach(item => {
-        const qty = +item.querySelector('.quantity-control span').textContent;
-        const price = parseFloat(item.querySelector('.price').textContent.replace('₹',''));
-        totalQty += qty;
-        totalPrice += price * qty;
+      itemsContainer.forEach(container => {
+        const items = container.querySelectorAll('.cart-item');
+        items.forEach(item => {
+          const qty = +item.querySelector('.quantity-control span').textContent;
+          const price = parseFloat(item.querySelector('.price').textContent.replace('₹',''));
+          totalQty += qty;
+          totalPrice += price * qty;
+        });
       });
 
       cartCountEl.textContent = totalQty;
       subtotalEl.textContent = totalPrice.toFixed(2);
     }
 
-    itemsContainer.addEventListener('click', e => {
-      if (!e.target.matches('button[data-action]')) return;
-      const span = e.target.parentElement.querySelector('span');
-      let qty = +span.textContent;
-      qty = e.target.dataset.action === 'increase' ? qty + 1 : Math.max(1, qty - 1);
-      span.textContent = qty;
-      updateSummary();
+    document.querySelectorAll('.quantity-control button').forEach(button => {
+      button.addEventListener('click', e => {
+        const span = e.target.parentElement.querySelector('span');
+        let qty = +span.textContent;
+        qty = e.target.dataset.action === 'increase' ? qty + 1 : Math.max(1, qty - 1);
+        span.textContent = qty;
+        updateSummary();
+      });
     });
 
     document.querySelector('.checkout-btn').addEventListener('click', () => {
