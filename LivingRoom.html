@@ -667,33 +667,46 @@
             document.getElementById('cartModal').style.display = "none";
         }
 
-         function displayCartItems() {
+       function displayCartItems() {
     const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = '';
+    cartItemsContainer.innerHTML = ''; 
     cartItems.forEach(item => {
         const itemElement = document.createElement('div');
         itemElement.className = 'cart-item';
-        itemElement.innerText = item;
+        itemElement.innerText = item; 
         cartItemsContainer.appendChild(itemElement);
     });
 }
 
-           document.querySelectorAll('.add-to-cart').forEach(button => {
+      document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        cartCount++;
         const itemName = this.getAttribute('data-item');
-        const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; // Get the selected rental option
-        cartItems.push(`${itemName} - ${rentalOption}`); // Add item name and rental option to cart
+        const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; 
+        const cartItem = `${itemName} - ${rentalOption}`;
+        cartItems.push(cartItem);
+        cartCount++;
+        
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
         updateCartCount();
     });
 });
+function loadCartItems() {
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems);
+        cartCount = cartItems.length; 
+        updateCartCount(); 
+    }
+}
 
-        // Function to open the modal
+window.onload = function() {
+    loadCartItems();
+};
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
         }
 
-        // Function to close the modal
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
         }
@@ -719,7 +732,6 @@
             }
         });
 
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             const modals = [
                 'sofaModal', 
