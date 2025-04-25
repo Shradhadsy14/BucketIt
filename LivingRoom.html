@@ -17,7 +17,6 @@
         }
 
 
-        /* Navbar */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -63,7 +62,6 @@
             cursor: pointer;
         }
 
-        /* Header Section */
         .category-header {
             background: linear-gradient(rgba(58, 90, 64, 0.85), rgba(58, 90, 64, 0.85)), 
                         url('data_Looks_berlin2.jpg') center/cover no-repeat;
@@ -83,17 +81,16 @@
             letter-spacing: 1.5px;
         }
 
-        /* Items Section */
         .category-items {
             display: flex;
-            overflow: hidden; /* Hide scrollbar */
+            overflow: hidden; 
             padding: 4rem 5%;
             position: relative;
         }
 
         .category-items-inner {
             display: flex;
-            animation: scroll 20s linear infinite; /* Animation for scrolling */
+            animation: scroll 20s linear infinite;
         }
 
         .category-item {
@@ -102,8 +99,8 @@
             border-radius: 12px;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
             text-align: center;
-            min-width: 300px; /* Set a minimum width for the items */
-            margin-right: 2rem; /* Space between items */
+            min-width: 300px; 
+            margin-right: 2rem; 
         }
 
         .category-item img {
@@ -118,7 +115,7 @@
             font-size: 1.8rem;
             color: #588157;
             transition: color 0.3s ease;
-            cursor: pointer; /* Change cursor to pointer */
+            cursor: pointer; 
         }
 
         .category-item:hover h3 {
@@ -130,7 +127,6 @@
             color: #A3B18A;
         }
 
-        /* Footer */
         .footer {
             background: #344E41;
             color: #DAD7CD;
@@ -158,25 +154,24 @@
             transform: translateY(-3px);
         }
 
-        /* Modal Styles */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
+            display: none;
+            position: fixed; 
+            z-index: 1000;
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.7); 
         }
 
         .modal-content {
             background-color: #DAD7CD;
-            margin: 15% auto; /* 15% from the top and centered */
+            margin: 15% auto; 
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
+            width: 80%; 
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -195,25 +190,24 @@
             cursor: pointer;
         }
 
-        /* Cart Modal */
         .cart-modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0, 0, 0, 0.7); 
         }
 
         .cart-modal-content {
             background-color: #DAD7CD;
-            margin: 15% auto; /* 15% from the top and centered */
+            margin: 15% auto; 
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Could be more or less, depending on screen size */
+            width: 80%;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -222,7 +216,6 @@
             margin: 10px 0;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -434,7 +427,6 @@
             </div>
         </section>
 
-        <!-- Cart Modal -->
         <div id="cartModal" class="cart-modal">
             <div class="cart-modal-content">
                 <span class="close" onclick="closeCartModal()">&times;</span>
@@ -444,7 +436,6 @@
             </div>
         </div>
 
-        <!-- Modals for all products -->
         <div id="sofaModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('sofaModal')">&times;</span>
@@ -757,9 +748,9 @@
     items.forEach(item => {
         const title = item.querySelector('h3').innerText.toLowerCase();
         if (title.includes(input)) {
-            item.style.display = 'block'; // Show item
+            item.style.display = 'block'; 
         } else {
-            item.style.display = 'none'; // Hide item
+            item.style.display = 'none'; 
         }
     });
 }
