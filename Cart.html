@@ -210,38 +210,42 @@
     © 2025 BucketIt. All rights reserved.
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const cartCountEl = document.getElementById('cartCount');
-      const subtotalEl = document.getElementById('subtotal');
-      const itemsContainer = document.getElementById('cartItems');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cartCountEl = document.getElementById('cartCount');
+    const subtotalEl = document.getElementById('subtotal');
+    const itemsContainer = document.getElementById('cartItems');
 
-      function updateSummary() {
-        const items = itemsContainer.querySelectorAll('.cart-item');
-        let totalQty = 0, totalPrice = 0;
+    function updateSummary() {
+      const items = itemsContainer.querySelectorAll('.cart-item');
+      let totalQty = 0, totalPrice = 0;
 
-        items.forEach(item => {
-          const qty = +item.querySelector('.quantity-control span').textContent;
-          const price = parseFloat(item.querySelector('.price').textContent.replace('₹',''));
-          totalQty += qty;
-          totalPrice += price * qty;
-        });
-
-        cartCountEl.textContent = totalQty;
-        subtotalEl.textContent = totalPrice.toFixed(2);
-      }
-
-      itemsContainer.addEventListener('click', e => {
-        if (!e.target.matches('button[data-action]')) return;
-        const span = e.target.parentElement.querySelector('span');
-        let qty = +span.textContent;
-        qty = e.target.dataset.action === 'increase' ? qty + 1 : Math.max(1, qty - 1);
-        span.textContent = qty;
-        updateSummary();
+      items.forEach(item => {
+        const qty = +item.querySelector('.quantity-control span').textContent;
+        const price = parseFloat(item.querySelector('.price').textContent.replace('₹',''));
+        totalQty += qty;
+        totalPrice += price * qty;
       });
 
+      cartCountEl.textContent = totalQty;
+      subtotalEl.textContent = totalPrice.toFixed(2);
+    }
+
+    itemsContainer.addEventListener('click', e => {
+      if (!e.target.matches('button[data-action]')) return;
+      const span = e.target.parentElement.querySelector('span');
+      let qty = +span.textContent;
+      qty = e.target.dataset.action === 'increase' ? qty + 1 : Math.max(1, qty - 1);
+      span.textContent = qty;
       updateSummary();
     });
-  </script>
+
+    document.querySelector('.checkout-btn').addEventListener('click', () => {
+      alert('Your order has been placed!');
+    });
+
+    updateSummary();
+  });
+</script>
 </body>
 </html>
