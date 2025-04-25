@@ -580,27 +580,44 @@
             document.getElementById('cartModal').style.display = "none";
         }
 
-        function displayCartItems() {
+    function displayCartItems() {
     const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = '';
+    cartItemsContainer.innerHTML = ''; // Clear existing items
     cartItems.forEach(item => {
         const itemElement = document.createElement('div');
         itemElement.className = 'cart-item';
-        itemElement.innerText = item;
+        itemElement.innerText = item; // Display the item
         cartItemsContainer.appendChild(itemElement);
     });
 }
 
-        document.querySelectorAll('.add-to-cart').forEach(button => {
+   document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        cartCount++;
         const itemName = this.getAttribute('data-item');
-        const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; // Get the selected rental option
-        cartItems.push(`${itemName} - ${rentalOption}`); // Add item name and rental option to cart
+        const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; 
+        const cartItem = `${itemName} - ${rentalOption}`; 
+
+        cartItems.push(cartItem);
+        cartCount++;
+        
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
         updateCartCount();
     });
 });
+function loadCartItems() {
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems);
+        cartCount = cartItems.length; // Set cart count based on loaded items
+        updateCartCount(); // Update the displayed cart count
+    }
+}
 
+// Call loadCartItems when the page loads
+window.onload = function() {
+    loadCartItems();
+};
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
         }
@@ -634,9 +651,9 @@
     items.forEach(item => {
         const title = item.querySelector('h3').innerText.toLowerCase();
         if (title.includes(input)) {
-            item.style.display = 'block'; // Show item
+            item.style.display = 'block'; 
         } else {
-            item.style.display = 'none'; // Hide item
+            item.style.display = 'none';
         }
     });
 }
