@@ -172,7 +172,7 @@
 
     <div class="cart-items" id="cartItems">
       <div class="cart-item">
-        <img src="images/Books-AtomicHabits.jpg" alt="Atomic Habits">
+        <img src="living-curtains.jpg" alt="Atomic Habits">
         <div class="item-details">
           <h3>Curtains</h3>
           <p class="price">₹899</p>
@@ -184,9 +184,10 @@
         </div>
       </div>
     </div>
+    <br>
     <div class="cart-items" id="cartItems">
       <div class="cart-item">
-        <img src="images/Books-AtomicHabits.jpg" alt="Atomic Habits">
+        <img src="living-ottoman.jpg" alt="Atomic Habits">
         <div class="item-details">
           <h3>Comfort Ottoman</h3>
           <p class="price">₹699</p>
@@ -200,7 +201,7 @@
     </div>
 
     <div class="summary">
-      <p>Subtotal: $<span id="subtotal">12.99</span></p>
+      <p>Subtotal:₹<span id="subtotal">12.99</span></p>
       <button class="checkout-btn">Proceed to Checkout</button>
     </div>
   </main>
@@ -221,7 +222,7 @@
 
         items.forEach(item => {
           const qty = +item.querySelector('.quantity-control span').textContent;
-          const price = parseFloat(item.querySelector('.price').textContent.replace('$',''));
+          const price = parseFloat(item.querySelector('.price').textContent.replace('₹',''));
           totalQty += qty;
           totalPrice += price * qty;
         });
