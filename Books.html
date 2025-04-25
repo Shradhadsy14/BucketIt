@@ -567,9 +567,9 @@
             document.getElementById('cartModal').style.display = "none";
         }
 
-      function displayCartItems() {
+     function displayCartItems() {
     const cartItemsContainer = document.getElementById('cart-items');
-    cartItemsContainer.innerHTML = '';
+    cartItemsContainer.innerHTML = ''; 
     cartItems.forEach(item => {
         const itemElement = document.createElement('div');
         itemElement.className = 'cart-item';
@@ -578,15 +578,31 @@
     });
 }
 
-          document.querySelectorAll('.add-to-cart').forEach(button => {
+       document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function() {
-        cartCount++;
         const itemName = this.getAttribute('data-item');
         const rentalOption = this.parentElement.querySelector('input[type="radio"]:checked').value; 
-        cartItems.push(`${itemName} - ${rentalOption}`); 
+        const cartItem = `${itemName} - ${rentalOption}`; 
+        cartItems.push(cartItem);
+        cartCount++;
+        
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
         updateCartCount();
     });
 });
+function loadCartItems() {
+    const storedCartItems = localStorage.getItem('cartItems');
+    if (storedCartItems) {
+        cartItems = JSON.parse(storedCartItems);
+        cartCount = cartItems.length; 
+        updateCartCount(); 
+    }
+}
+
+window.onload = function() {
+    loadCartItems();
+};
 
 
         function openModal(modalId) {
